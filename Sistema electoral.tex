@@ -21,8 +21,10 @@
 	Extension		= .ttf ,	UprightFont		= *-Regular ,	BoldFont		= *-Bold]
 \newfontfamily\headingfont{Montserrat}[
 	Extension		= .ttf ,	UprightFont		= *-Regular ,	BoldFont		= *-Bold]
-\setmainfont{SourceSerifPro}[
-	Extension		= .ttf ,	UprightFont		= *-Regular ,	BoldFont		= *-Bold]
+\setmainfont{Lora}[
+	Extension		= .ttf ,	UprightFont		= *-Regular ,	BoldFont		= *-Bold ,
+	ItalicFont		= *-Italic ,
+	BoldItalicFont	= *-BoldItalic]
 \newfontfamily\inconsolata{Inconsolata}[
 	Extension		= .ttf ,	UprightFont		= *-Regular ,	BoldFont		= *-Bold]
 
@@ -76,19 +78,49 @@
 		}
 	}
 	\thispagestyle{empty}
+	\fontsize{11}{14}
+	
 	\newpage
 	
-	\fontsize{11}{14}
+	\tableofcontents
+	
+	\newpage
+	
+	\section*{Preámbulo.}
+	\addcontentsline{toc}{section}{Preámbulo.}
+	
+	El sistema electoral español es un sistema sencillo, al menos comparado con el de otros países como Alemania o Reino Unido. El objetivo de este documento no es sólo explicar el funcionamiento de dicho sistema. También se pretende mostrar los problemas que presenta, así como comentar las principales críticas que recibe. 
+	
+	Para ello, no sólo se habla nuestro sistema electoral, sino que también se detallan los de otros países así otros métodos de reparto de escaños. De esta forma se puede observar tanto las ventajas que presenta el sistema español como sus deficiencias. Este documento no se limita a explicar dichos sistemas, sino que también recoge simulaciones hechas sobre los resultados de dos elecciones generales distintas, las de 2004 y las de 2015. Estas simulaciones se realizan bajo distintos sistemas, pudiendo así observar la diferencia que se puede producir en el reparto de escaños a partir del mismo número de votos gracias al uso de distintos métodos.
+	
+	\newpage
 	
 	\section{Sistema electoral español.}
 	
-	Actualmente el sistema electoral español está sustentado tanto en la Constitución de 1978 como en la Ley Orgánica 5/1985, de 19 de junio, del Régimen Electoral General.
+	Actualmente el sistema electoral español está sustentado tanto en la Constitución de 1978 como en la Ley Orgánica 5/1985, de 19 de junio, del Régimen Electoral General. En este documento se recoge el sistema electoral para la elección de los diputados del Congreso. El Congreso de los diputados es la sede del Poder Legislativo. Está formado por trescientos cincuenta Diputados, como recoge el artículo 162 de la Ley Electoral. La elección de los miembros de esta cámara se hace por sufragio universal entre los ciudadanos españoles mayores de 18 años.
 	
-	El Congreso de los diputados está formado por trescientos cincuenta Diputados, como recoge el artículo 162 de la Ley Electoral. La elección de los miembros de la cámara baja se hace por circunscripciones: a cada una de ellas le corresponde un número concreto de diputados a elegir.
+	Los electores votan \textit{listas electorales}, una relación de aspirantes a obtener un escaño que se presentan bajo un mismo partido o coalición. Estas listas deben ser presentadas a nivel provincial. De esta forma, a cada provincia le corresponde un número concreto de diputados. Se dice que las provincias constituyen la circunscripción electoral. Por este motivo, los partidos presentan a sus candidatos en las distintas circunscripciones para intentar conseguir el mayor número de diputados posible.
 	
-	Sobre la distribución de escaños en circunscripciones, la Ley Orgánica 5/1985, de 19 de junio, del Régimen Electoral General recoge lo siguiente: \\
+	La Constitución sienta las bases del sistema electoral, pero es una ley la que tendrá que regularlo por completo. Básicamente se limita a mencionar algunos aspectos básicos que debe cumplir dicha ley, como el número de diputados o la elección de éstos. \\
+	
+	\console{
+		\begin{leftbar}
+			\textbf{CONSTITUCIÓN ESPAÑOLA.} \\
+			\textbf{Artículo 68.}
+			
+			\begin{enumerate}
+			\item El Congreso se compone de un mínimo de 300 y un máximo de 400 Diputados, elegidos por sufragio universal, libre, igual, directo y secreto, en los términos que establezca la ley.
+			\item La circunscripción electoral es la provincia. Las poblaciones de Ceuta y Melilla estarán representadas cada una de ellas por un Diputado. La ley distribuirá el número total de Diputados, asignando una representación mínima inicial a cada circunscripción y distribuyendo los demás en proporción a la población.
+			\item La elección se verificará en cada circunscripción atendiendo a criterios de representación proporcional. \\
+		\end{enumerate}	
+		\end{leftbar}
+	}
+	
+	La ley que cumple esta función es la Ley del Régimen Electoral General. En ella se acaban de detallar los procedimientos brevemente esbozados en la Constitución. Da cifras concretas del número de parlamentarios y especifica el método a seguir para traducir votos a escaños así como para calcular el número de escaños de cada circunscripción. Así, los artículos 161, 162 y 163 de esta ley detallan en profundidad los puntos 1, 2 y 3 del artículo 68 de la Constitución. \\
+	
 	\console{
 	\begin{leftbar}
+		\textbf{LEY DEL RÉGIMEN ELECTORAL GENERAL.} \\
 		\textbf{Artículo 161.}
 		
 		\begin{enumerate}
@@ -104,37 +136,25 @@
 				\begin{enumerate}[a)]
 					\item Se obtiene una cuota de reparto resultante de dividir por doscientos cuarenta y ocho la cifra total de la población de derecho de las provincias peninsulares e insulares.
 					\item Se adjudican a cada provincia tantos Diputados como resulten, en números enteros, de dividir la población de derecho provincial por la cuota de reparto.
-					\item Los Diputados restantes se distribuyen asignando uno a cada una de las provincias cuyo cociente, obtenido conforme al apartado anterior, tenga una fracción decimal mayor. \\
+					\item Los Diputados restantes se distribuyen asignando uno a cada una de las provincias cuyo cociente, obtenido conforme al apartado anterior, tenga una fracción decimal mayor.
 				\end{enumerate}
 		\end{enumerate}
+		
+		\textbf{Artículo 163}.
+	
+		\begin{enumerate}
+			\item La atribución de los escaños en función de los resultados del escrutinio se realiza conforme a las siguientes reglas:
+			\begin{enumerate}[a)]
+					\item No se tienen en cuenta aquellas candidaturas que no hubieran obtenido, al menos, el 3 por 100 de los votos válidos emitidos en la circunscripción.
+					\item Se ordenan de mayor a menor, en una columna, las cifras de votos obtenidos por las restantes candidaturas.
+					\item Se divide el número de votos obtenidos por cada candidatura por 1, 2, 3, etcétera, hasta un número igual al de escaños correspondientes a la circunscripción, formándose un cuadro similar al que aparece en el ejemplo práctico. Los escaños se atribuyen a las candidaturas que obtengan los cocientes mayores en el cuadro, atendiendo a un orden decreciente.
+				\end{enumerate}
+		\end{enumerate}
+
 	\end{leftbar}
 	}
 	
-	
-
-	En consecuencia, el número de diputados que corresponden a cada circunscripción se asignan en cada convocatoria electoral, pues la población varía con el paso del tiempo.s
-	
-	La Constitución Española, en el artículo 68 dice lo siguiente sobre la composición del Congreso de los Diputados y el reparto de escaños:
-	
-	\begin{enumerate}
-		\item El Congreso se compone de un mínimo de 300 y un máximo de 400 Diputados, elegidos por sufragio universal, libre, igual, directo y secreto, en los términos que establezca la ley.
-		\item La circunscripción electoral es la provincia. Las poblaciones de Ceuta y Melilla estarán representadas cada una de ellas por un Diputado. La ley distribuirá el número total de Diputados, asignando una representación mínima inicial a cada circunscripción y distribuyendo los demás en proporción a la población.
-		\item La elección se verificará en cada circunscripción atendiendo a criterios de representación proporcional. \\
-	\end{enumerate}
-	
-	
 		
-	Artículo 163.
-	
-	\begin{enumerate}
-		\item La atribución de los escaños en función de los resultados del escrutinio se realiza conforme a las siguientes reglas:
-		\begin{enumerate}[a)]
-				\item No se tienen en cuenta aquellas candidaturas que no hubieran obtenido, al menos, el 3 por 100 de los votos válidos emitidos en la circunscripción.
-				\item Se ordenan de mayor a menor, en una columna, las cifras de votos obtenidos por las restantes candidaturas.
-				\item Se divide el número de votos obtenidos por cada candidatura por 1, 2, 3, etcétera, hasta un número igual al de escaños correspondientes a la circunscripción, formándose un cuadro similar al que aparece en el ejemplo práctico. Los escaños se atribuyen a las candidaturas que obtengan los cocientes mayores en el cuadro, atendiendo a un orden decreciente.
-			\end{enumerate}
-	\end{enumerate}
-	
 	\subsection{Cómo se reparten los escaños.}
 	\subsection{Redondeo.}
 	\subsection{Críticas al sistema electoral actual.}
@@ -172,8 +192,8 @@
 					Euzko Alderdi Jeltzalea-Partido Nacionalista Vasco & 420 980 & 1.63\% & 7 \\ \hline
 					Coalición Canaria\footnotemark & 235 22 & 0.91\% & 3 \\ \hline
 					Bloque Nacionalista Gallego & 208 688 & 0.81\% & 2 \\ \hline
-					Chunta Aragonesista & 94 252 & 0.36 & 1 \\ \hline
-					Eusko Alkartasuna & 80 905 & 0.3º\% & 1 \\ \hline
+					Chunta Aragonesista & 94 252 & 0.36\% & 1 \\ \hline
+					Eusko Alkartasuna & 80 905 & 0.30\% & 1 \\ \hline
 					Nafarroa Bai & 61 045 & 0.24\% & 1 \\ 
 				\hline	
 				\end{tabular}
@@ -189,7 +209,7 @@
 	
 	\subsection{Elecciones del año 2015.}
 	
-	Las elecciones generales del año 2015 se celebraron el domingo 20 de diciembre. La aparición de dos nuevos partidos, Podemos y Ciudadanos, puso fin al bipartidismo imperante en España desde 1982. De las elecciones del 20D surgió un Congreso mucho más fragmentado, sin ninguna mayoría clara, que obligó a las fuerzas políticas a llegar a acuerdos para formar un Gobierno. El vencedor de las elecciones fue el Partido Popular, con 123 escaños (lejos de la mayoría absoluta, que está en 176 escaños), frente a los 90 del PSOE, los 69 de Podemos y los 40 de Ciudadanos.
+	Las elecciones generales del año 2015 se celebraron el domingo 20 de diciembre. La aparición de dos nuevos partidos, Podemos y Ciudadanos, puso fin al bipartidismo imperante en España desde 1982. De las elecciones del 20D surgió un Congreso mucho más fragmentado, sin ninguna mayoría clara, que obligó a las fuerzas políticas a llegar a acuerdos para formar un Gobierno. La lista más votada fue la del Partido Popular, con 123 escaños (lejos de la mayoría absoluta, que está en 176 escaños), frente a los 90 del PSOE, los 69 de Podemos y los 40 de Ciudadanos.
 	
 	La composición del Congreso quedó como sigue:
 	
