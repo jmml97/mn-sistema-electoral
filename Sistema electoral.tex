@@ -14,6 +14,8 @@
 \usepackage{xcolor}
 \usepackage{framed}
 
+\usepackage{lipsum}
+
 %---- Fuentes
 
 \usepackage{fontspec}
@@ -39,7 +41,8 @@
 
 \titleformat*{\section}{\huge\bfseries\sffamily}
 \titleformat*{\subsection}{\Large\bfseries\sffamily}
-\titleformat*{\subsubsection}{\itshape\subsubsectionfont}
+\titleformat*{\subsubsection}{\large\bfseries\sffamily}
+\titleformat*{\paragraph}{\large\bfseries\sffamily}
 
 %----- Colores
 
@@ -89,10 +92,16 @@
 	\section*{Preámbulo.}
 	\addcontentsline{toc}{section}{Preámbulo.}
 	
-	El sistema electoral español es un sistema sencillo, al menos comparado con el de otros países como Alemania o Reino Unido. El objetivo de este documento no es sólo explicar el funcionamiento de dicho sistema. También se pretende mostrar los problemas que presenta, así como comentar las principales críticas que recibe. 
+	Todas las democracias tienen algo en común: \textit{la soberanía nacional reside en el pueblo}. Ahí se acaban las coincidencias: hay muchas formas de implementar la democracia. La más extendida es la democracia representativa: el pueblo elige a representantes que tomarán decisiones por ellos en los órganos de poder. España es un país con una democracia representativa. Los ciudadanos españoles eligen mediante el voto a sus representantes en el Congreso de los Diputados y el Senado, sedes del poder legislativo. Para transformar \textit{votos} en \textit{escaños} (así es como se denominan cada uno de los asientos que ocupan los representantes políticos en las cámaras parlamentarias) existen diversos métodos o sistemas. Explicar el funcionamiento de nuestro sistema es el tema que nos ocupa en este trabajo.
 	
-	Para ello, no sólo se habla nuestro sistema electoral, sino que también se detallan los de otros países así otros métodos de reparto de escaños. De esta forma se puede observar tanto las ventajas que presenta el sistema español como sus deficiencias. Este documento no se limita a explicar dichos sistemas, sino que también recoge simulaciones hechas sobre los resultados de dos elecciones generales distintas, las de 2004 y las de 2015. Estas simulaciones se realizan bajo distintos sistemas, pudiendo así observar la diferencia que se puede producir en el reparto de escaños a partir del mismo número de votos gracias al uso de distintos métodos.
+	El sistema electoral español para las elecciones al Congreso de los Diputados es un sistema sencillo de comprender, al menos comparado con el de otros países como Alemania o Reino Unido. El objetivo de este documento no es sólo explicar el funcionamiento y en qué leyes se fundamenta el sistema electoral de nuestro país. También pretende mostrar los problemas que presenta, y exponer las principales críticas que recibe. 
 	
+	Para exponer mejor estas ideas este documento no sólo recoge información sobre nuestro sistema electoral. Ver el funcionamiento de otros sistemas ayuda a comparar ventajas y deficiencias. Por este motivo, en este texto también se comentan brevemente los sistemas vigentes en Alemania y Reino Unido (países que ya fueron mencionados anteriormente) así otros métodos de reparto de escaños.
+	
+	Sin duda, apoyarse en datos reales es una de las mejores formas de presentar y explicar información. Este documento no se limita a explicar los fundamentos teóricos de los sistemas electorales analizados, sino que también recoge resultados reales de elecciones. Pero lo más interesante es utilizar estos datos y realizar simulaciones con ellos empleando distintos métodos. El uso de simulaciones permite apreciar de forma mucho más fácil las diferencias entre los sistemas electorales explicados teóricamente.
+	
+	Una vez finalizada la lectura de este escrito se espera que el lector haya adquirido el conocimiento suficiente como para comprender el funcionamiento de nuestro sistema electoral y cómo se compara con otros alternativos.
+		
 	\newpage
 	
 	\section{Sistema electoral español.}
@@ -158,6 +167,20 @@
 	\subsection{Cómo se reparten los escaños.}
 	\subsection{Redondeo.}
 	\subsection{Críticas al sistema electoral actual.}
+	
+	\paragraph{Falta de proporcionalidad.}
+	
+	La Constitución dice en su artículo número 68 que "la elección se verificará \textbf{en cada circunscripción} atendiendo a criterios de representación proporcional". Es decir, nuestro sistema electoral \textbf{no es proporcional} en el conjunto del Estado, pero sí que lo es en la \textbf{provincia}. O lo que es lo mismo, la propia Constitución no asegura que la distribución de escaños a nivel estatal se corresponda de forma proporcional al cómputo total de los votos.
+	
+	\paragraph{Circunscripción provincial.}
+	
+	Se suele culpar a la Ley D'Hondt de la falta de proporcionalidad en los resultados Estatales. Sin embargo, la principal causante de este problema (que como se ha comentado en el punto anterior viene implícitamente contemplado en la Constitución) es la circunscripción provincial. Muchos politólogos argumentan que realmente en España hay tres elecciones, con tres sistemas \textit{distintos} atendiendo al número de diputados a elegir por circunscripción. Las circunscripciones que reparten de 1 a 6 escaños son sistemas mayoritarios, el partido que más votos recibe puede acaparar gran parte de los escaños (los datos de todas elecciones nos dan una barrera media efectiva del 15,2\%). Las circunscripciones que reparten entre 6 y 9 escaños se asemejan a un sistema intermedio entre mayoritario y proporcional (la barrera efectiva media aquí es del 9,8\%). Finalmente, las provincias que reparten más de 10 escaños podemos decir que son puramente proporcionales y la barrera efectiva media se acerca a la impuesta por la Ley Electoral, es del 3,1\%.
+	
+	\paragraph{Listas cerradas.}
+	
+	Las listas abiertas o desbloqueadas propician el acercamiento los candidatos a los electores, ya que estos deben hacer campaña individualmente para intentar obtener mejores resultados que el resto de candidatos (y obtener el escaño).
+	
+	
 	
 	\newpage
 	
