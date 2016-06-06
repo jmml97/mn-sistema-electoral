@@ -163,9 +163,154 @@
 	\end{leftbar}
 	}
 	
-		
+%%%%%%%%%%%%%%%%%%% antcc %%%%%%%%%%%%%%%%%%%%%%%%%
+	\subsection	{Asignación de escaños a circunscripciones.}
+	
+	Como hemos visto en la Ley del Régimen Electoral General (en adelante \textit{LREG}) ilustrada anteriormente, las circunscripciones electorales en el sistema electoral español son 52: las 50 provincias españolas, Ceuta y Melilla. Tal y como se establece en la mencionada ley, el número de diputados que corresponden a cada circunscripción se asignan en cada convocatoria electoral, pues la población de derecho varía con el paso del tiempo.
+	
+	Así, no es posible saber a ciencia cierta cuántos escaños corresponden a cada circunscripción hasta que no se hace un recuento del censo electoral a fecha de la convocatoria de las elecciones. Veamos un ejemplo real para el cálculo de los diputados que correspondió elegir en las elecciones del pasado 20 de Diciembre de 2015 a los ciudadanos de la provincia de Almería.
+	
+	En primer lugar, tal y como garantiza la \textit{LREG}, a Almería le corresponden inicialmente dos escaños. Veamos los datos del censo provincial y estatal, que necesitaremos para hacer los cálculos:
+	
+	\begin{itemize}
+	\item Población de derecho en la circunscripción de Almería: \textit{452.590}
+	\item Población de derecho en el ámbito estatal: \textit{34.630.253}
+	\end{itemize}
+	
+	Calculamos primero la cuota de reparto, resultante de dividir la población de derecho total por 248 (número de diputados restantes después de asignar dos a cada provincia, uno a Ceuta y otro a Melilla).
+
+	$$\dfrac{34630253}{248} = 139638.1169\ \ \frac{personas}{esca\tilde{n}o}$$
+	
+	A continuación, dividimos por esa cifra la población con derecho a voto en la circunscripción de Almería:
+	
+	$$Esca\tilde{n}os_{Al} = \dfrac{452590}{139638.1169} = 3.24116371\ esca\tilde{n}os$$
+
+  Ahora, puesto que no se contempla asignar una cantidad decimal de escaños, se toma la parte entera del número resultante, es decir, 3 escaños. Contando los dos anteriores, tenemos ya 5 escaños. Una vez realizado este proceso en todas las circunscripciones, se reparten los escaños sobrantes en vista de una mayor parte decimal de la cuenta anterior, hasta que se completan los 350 escaños.
+  
+  Como consecuencia de este último recuento, Almería consiguió otro escaño. Así, para las elecciones generales del 20 de Diciembre de 2015, a la circunscripción de Almería le correspondían \textbf{6 escaños}.
+  
 	\subsection{Cómo se reparten los escaños.}
-	\subsection{Redondeo.}
+	
+	El proceso descrito en la \textit{LREG} es un algoritmo de aplicación de la llamada \textit{Ley D'Hondt}, en honor a Victor D'Hondt, jurista belga que la concibió en 1874.
+	
+	La Ley D'Hondt o Sistema D'Hondt es un método de promedio mayor para asignar escaños en sistemas de representación proporcional por listas electorales. Los métodos de promedio mayor consisten en dividir los votos obtenidos por cada lista por cocientes sucesivos, y se asignan los escaños a los cocientes mayores que vayan resultando de las divisiones.
+	
+	Concretamente, este método de asignación de votos a escaños contempla la siguiente fórmula para el cálculo de los cocientes:
+	
+	$$i = 1,\ldots,N \Rightarrow C_i = \dfrac{V}{s + 1}\, ,$$
+	
+	donde $C_i$ es el cociente que resulta, en cada caso, de dividir los votos totales $V$ a cada lista por una cantidad $s + 1$, y $s$ es el número de escaños que la lista ya ha conseguido, inicialmente 0.
+	
+	El número de votos recibidos por cada lista se divide sucesivamente por cada uno de los divisores, desde 1 hasta el número total de escaños a repartir ($N$). La asignación de escaños se hace ordenando los cocientes de mayor a menor y asignando a cada uno un escaño, hasta que estos se agoten.
+	
+	Veamos ahora un ejemplo real de aplicación de la Ley D'Hondt, de nuevo fijándonos en los resultados electorales obtenidos en la provincia de Almería en las elecciones del 20 de Diciembre de 2015.
+	
+	Antes de nada, tenemos que tener en cuenta que se contempla en la \textit{LREG} que los partidos cuyo porcentaje de votos con respecto al total de votos válidos emitidos (incluyendo los votos en blanco) no llegue al 3\%, serán excluídos del conteo. Los resultados fueron los siguientes:
+	
+	\begin{itemize}
+	\item Participación: \textit{311059}
+	\item Votos nulos: \textit{2410}
+	\item Votos en blanco: \textit{2204} 
+	\end{itemize}
+	
+	Así, el número mínimo de votos necesarios para optar a un escaño es:
+	\begin{center}
+	 \textit{(Votos totales - Votos nulos)$\cdot 0.03$} $(311059 - 2410)\cdot 0.03 = 9259.47$ votos.
+	\end{center}
+	
+	Una vez que se excluyeron aquellos partidos que no alcanzaron $9259$ votos, procedemos a la aplicación del algoritmo ya explicado, resultando en una tabla como la que sigue:
+	
+	\begin{center}
+	\begin{tabular}{|c|c|c|c|c|c|}
+	\hline
+	 & \textbf{PP} & \textbf{PSOE} & \textbf{C's} & \textbf{PODEMOS} & \textbf{UP} \\
+	\hline
+	VOTOS & 117407 & 89022 & 44320 & 39482 & 10776 \\
+	\hline
+	ESCAÑO 1 & 117407 (X) & 89022 & 44320 & 39482 & 10776 \\
+	\hline
+	ESCAÑO 2 & 58703 & 89022 (X) & 44320 & 39482 & 10776 \\
+	\hline
+	ESCAÑO 3 & 58703 (X) & 44511 & 44320 & 39482 & 10776 \\
+	\hline
+	ESCAÑO 4 & 39135 & 44511 (X) & 44320 & 39482 & 10776 \\
+	\hline
+	ESCAÑO 5 & 39135 & 29674 & 44320 (X) & 39482 & 10776 \\
+	\hline
+	ESCAÑO 6 & 39135 & 29674 & 22160 & 39482 (X) & 10776 \\
+	\hline
+\end{tabular}
+\end{center}
+
+\vspace{1em}
+  Entonces, en la circunscripción de Almería correspondieron 2 escaños al PP (el primero y el tercero), dos escaños al PSOE (segundo y cuarto), y los dos últimos escaños los obtuvieron C's y PODEMOS, respectivamente.
+  
+  \textbf{Observaciones:}
+  
+  \begin{itemize}
+  \item Es importante recalcar que en el método D'Hondt, los cocientes se redondean al \textbf{entero por defecto}.
+  \item El precio de un escaño es en Almería fue de \textbf{39482} votos. Así, si la formación \textbf{UP} hubiera obtenido, por ejemplo, 25.000 votos más, seguiría sin obtener ningún escaño.
+  \item El Partido Popular casi le arrebata el último escaño a PODEMOS, le faltaron \textbf{347} votos.
+  \item El número total de votos a una lista no se tiene en cuenta, tan sólo los votos dentro de la circunscripción considerada en cada caso.
+  \item Los partidos minoritarios ven cómo una gran cantidad de votos se ve "desperdiciada", pues superan con holgura el precio del primer escaño, pero no alcanzan el segundo.
+	\end{itemize}
+	
+	
+	\subsubsection{Votos blancos y votos nulos.}
+	
+	Merece especial atención el papel que juegan los votos en blanco y los votos nulos en las elecciones al Congreso.
+	
+	Los votos nulos simplemente se eliminan del conteo de votos de primera hora, es decir, votar nulo y no votar es lo mismo. Tan sólo se refleja el voto nulo en las estadísticas de participación.
+	
+	Sin embargo, votar en blanco sí tiene influencia en el resultado de las elecciones, y puede ser decisivo en algunos casos para determinar el acceso de un partido minoritario a un escaño en el Congreso. Un voto en blanco \textbf{es un voto válido}, y la Ley Electoral establece que aquellos partidos que, en cada circunscripción, no alcancen el 3\% del total de votos válidos quedarán excluídos del recuento de escaños para esa circunscripción.
+	
+	Hay cierta controversia con los votos en blanco, y en muchas ocasiones se escucha la frase \textit{los votos en blanco favorecen a los partidos mayoritarios}. Esta frase, aunque es cierta, es quizá un tanto exagerada. En teoría, podría darse una situación en que muchos votos en blanco en una circunscripción perjudicasen a un partido minoritario. Pensemos en una circunscripción grande, donde un partido tenga votos suficientes para conseguir un escaño, pero no alcance el 3\% de los votos válidos emitidos.
+	
+	Una vez que se han descartado los partidos que no llegan al 3\% de los votos, los votos en blanco no intervienen en la aplicación de la Ley D'Hondt.
+	
+	\subsection{Redondeo y distorsión.}
+	
+	Aunque el sistema electoral español se caracteriza por ser un sistema de representación proporcional, donde se persigue asignar los escaños a las listas de forma proporcional al número de votos recibidos, alcanzar la proporcionalidad exacta no es posible en general. En efecto, la imposibilidad de asignar un número decimal de escaños hace que inevitablemente se produzcan ciertos errores de redondeo.
+	
+	 Si retomamos el ejemplo anterior de la provincia de Almería, podemos hacer una comparativa de los escaños asignados a cada partido, y los escaños proporcionales que en teoría le corresponden a cada lista. Para ello, dividimos el número de votos de la lista entre el total de votos de los cinco partidos, y multiplicamos por los 6 escaños que se pretenden asignar:
+	 
+	 \begin{center}
+	 \begin{tabular}{c|c|c}
+	 \textbf{Partido} & \textbf{Escaños asignados} & \textbf{Escaños proporcionales}\\
+	 \hline
+	 PP & 2 & 2.34\\
+	 PSOE & 2 & 1.77\\
+	 C's & 1 & 0.88\\
+	 PODEMOS & 1 & 0.79\\
+	 UP & 0 & 0.22
+	 \end{tabular}
+	 \end{center}
+	 Esta distorsión que se produce al aplicar el método \textit{D'Hondt} se puede cuantificar mediante la fórmula de \textit{Loosemore y Hanby}$^{[1]}$:
+	 
+	 \vspace{-0.5em}
+	 $$D = \frac{1}{2} \sum_{i=1}^n |v_i - s_i|,$$
+	 
+	 \vspace{-0.5em}
+	 la cual está acotada superiormente por
+	 
+	 \vspace{-0.5em}
+	 $$D \le \frac{1}{2} \left[ (1 - v_w) + v_r(n-1) \right],$$
+	 
+	 \vspace{-0.5em}
+	 donde:
+	 
+	  $\boldsymbol{n}$ es el número total de partidos.\\
+  $\displaystyle \boldsymbol{v_{i}}\,$  es el porcentaje de voto del partido i-ésimo.\\
+  $\displaystyle \boldsymbol{s_{i}}\,$  es el porcentaje de escaños del partido i-ésimo.\\
+  $\displaystyle \boldsymbol{v_{w}}\,$  el umbral de votos con los cuales un partido obtendría todos los votos de una circunscripción.\\
+  $\displaystyle \boldsymbol{v_{r}}\,$  el umbral de votos mínimo a partir del cual un partido obtiene escaño en una circunscripción.
+	 
+	 Se puede demostrar que la Ley D'Hondt es la que más distorsión produce$^{[2]}$, en comparación con otras leyes o fórmulas de reparto proporcional de escaños similares.
+	 
+	 Podemos comprobar que la distorsión que se produjo en los resultados de la provincia de Almería, aplicando la fórmula, es de $D = 10.322$, que nos da una idea de la discrepancia entre los porcentajes de voto general de los electores a cada partido y los representantes paralmentarios obtenidos por cada partido.
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 	\subsection{Críticas al sistema electoral actual.}
 	
 	\paragraph{Falta de proporcionalidad.}
@@ -180,9 +325,73 @@
 	
 	Las listas abiertas o desbloqueadas propician el acercamiento los candidatos a los electores, ya que estos deben hacer campaña individualmente para intentar obtener mejores resultados que el resto de candidatos (y obtener el escaño).
 	
+		%%%%%%%%%%%%%%%%%% antcc %%%%%%%%%%%%%%%%%%%%%%%%
 	
+		\paragraph{Mínimo de escaños por provincia.}
+		
+		Según la Ley Electoral actual, hay un mínimo de dos escaños asignados a cada provincia. Esto hace que provincias con pocos habitantes se vean sobre-representadas, pues por ejemplo, una provincia con aproximadamente los mismos habitantes que Ceuta o Melilla (e incluso menos) tendría, al menos, un escaño más que cualquiera de las dos ciudades autónomas. Así, una opción para aumentar la proporcionalidad sería reducir a 1 el número mínimo de escaños garantizado para cada provincia.
+		
+		\paragraph{Número de diputados en el Congreso.}
+		
+		La población en España ha ido aumentando desde que se estableciera la Ley Electoral en 1985, y sin embargo el número de diputados ha permanecido igual desde entonces. El hecho de aumentar los 350 diputados a 400 haría que aumentase la proporcionalidad en el reparto de escaños, pues las circunscripciones más pequeñas obtendrían mayor representatividad.
 	
 	\newpage
+	
+
+	
+	\section{Otros sistemas electorales.}
+	
+	En esta sección, comentaremos brevemente otros sistemas electorales, como los de Alemania o Reino Unido, los métodos que se usan en estos sistemas para asignar votos a escaños, y finalmente un ejemplo práctico para poder hacer una comparación de estos métodos con la Ley D'Hondt.
+	
+\paragraph{Reino Unido.}
+
+En el Reino Unido cuentan con la Cámara de los Comunes, formada por 646 miembros que se eligen cada 5 años. Su sistema electoral es el uninominal mayoritario simple (comúnmente llamado $"$el ganador se lo lleva todo$"$), de manera que se divide en 646 circunscripciones o distritos electorales, todas del mismo tamaño. En cada circunscripción se elige un único escaño, que será el representante que más votos obtenga en ese distrito.\\
+
+Algunos argumentos en contra de este sistema son el de que es poco proporcional (quizá uno de los menos proporcionales), o que provoca situaciones en las que partidos tienen muchos votos y pocos escaños (y viceversa). Los argumentos a favor pueden ser el hecho de que los representantes son directos (controlados por sus electores), y que forma un sistema estable, es decir, crea mayorías absolutas en general.
+
+\paragraph{Alemania.}
+
+En Alemania cuentan con el Bundestag, que no tiene un número fijo de diputados: se establece que al menos tengan 598 escaños, pero pueden ir añadiendose más para hacer el sistema más proporcional. Utilizan un sistema proporcional personalista a doble voto. El primer voto se realiza igual que en el Reino Unido, dividiéndose en 299 circunscripciones. Con el segundo voto se eligen 299 o más diputados de la siguiente forma: mediante listas cerradas se da el voto concreto al partido, y los escaños se asignan con un sistema llamado Sainte-Laguë, estableciéndose una barrera legal del 5\% para evitar la fragmentación del parlamento.
+
+Este sistema tiene bastantes ventajas, como son una gran proporcionalidad que a la vez permite una buena representación regional, la posibilidad de elegir a los representantes de forma directa, y evita el bipartidismo favoreciendo la representación de los partidos pequeños. Un posible problema es su grado de complejidad, que puede provocar una bajada en la participación electoral.
+
+\subsection{Método Sainte-Laguë}
+
+Veamos en qué consiste el método Sainte-Laguë para asignar votos a escaños. Es un método de promedio mayor, al igual que la ley D'Hondt, y cuyos cocientes sucesivos se calculan mediante la siguiente expresión:
+
+$$ i = 1,\ldots,N \Rightarrow C_i = \dfrac{V}{2s + 1}$$
+	
+	donde $C_i$ es el cociente que resulta, en cada caso, de dividir los votos totales $V$ a cada lista por una cantidad $2s + 1$, y $s$ es el número de escaños que la lista ya ha conseguido, inicialmente 0. Sin embargo, se suele usar una modificación de este sistema, donde cuando $s=0$ el cociente inicial es: $$ C_i = \frac{V}{1.4} $$
+
+Retomemos el ejemplo de los resultados de las elecciones del 20 de Diciembre en la provincia de Almería, y veamos cómo se habrían repartido los escaños si hubiésemos usado el método Sainte-Laguë. Debemos notar que en este sistema, se utiliza el redondeo estándar (al entero más próximo).\\
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+	\hline
+	 & PP & PSOE & C's & PODEMOS & UP \\
+	\hline
+	VOTOS & 117407 & 89022 & 44320 & 39482 & 10776 \\
+	\hline
+	ESCAÑO 1 & 83862 (X) & 63587 & 31657 & 28201 & 7697 \\
+	\hline
+	ESCAÑO 2 & 39136 & 63587 (X) & 31657 & 28201 & 7697 \\
+	\hline
+	ESCAÑO 3 & 39136 (X) & 29674 & 31657 & 28201 & 7697 \\
+	\hline
+	ESCAÑO 4 & 23481 & 29674 & 31657 (X) & 28201 & 7697 \\
+	\hline
+	ESCAÑO 5 & 23481 & 29674 (X) & 14773 & 28201 & 7697 \\
+	\hline
+	ESCAÑO 6 & 23481 & 17804 & 14773 & 28201 (X) & 7697 \\
+	\hline 
+\end{tabular}
+\end{center}
+
+\vspace{0.5em}
+Observamos que el reparto de escaños se mantiene igual que con la Ley D'Hondt. Sin embargo, ahora un escaño $"$cuesta$"$\hspace{0.2em} \textbf{28201}  votos. En esta configuración, el PP no ha estado tan cerca de arrebatarle un escaño a PODEMOS, y además el orden de obtención de los escaños cuarto y quinto se ha invertido.
+	
+	\newpage
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
 	\section{Análisis de resultados electorales.}
 	\subsection{Elecciones del año 2004.}
@@ -271,10 +480,37 @@
 	\footnotetext[6]{Incluye a Nueva Canarias.}
 	\footnotetext[7]{Incluye a En Comú Podem, Compromís-Podemos-És el moment y En Marea.}
 	
+	%%%%%%%%%%%%%%%%%%%%% antcc %%%%%%%%%%%%%%%%%%%%%%%%
+	
+		\enlargethispage{2\baselineskip}
+	Como podemos observar, existen algunas incongruencias entre el porcentaje de votos y el porcentaje de diputados obtenidos por las diversas formaciones.
+	
+	Por ejemplo, el PSOE tiene 21 diputados más que PODEMOS, contando tan sólo con unos 330.000 votos más. Sin embargo, el caso más reseñable es el de IU-UP, que con más de 920.000 ha obtenido tan sólo dos escaños. Podríamos decir que un escaño de IU $"$ha costado$"$  460.000 votos, mientras que por ejemplo un escaño del PP $"$ha costado$"$ unos 60.000 votos.\\
+	
+	Podemos concluir, a la vista también de los resultados de las elecciones de 2004, que la Ley D'Hondt, aplicada junto con circunscripciones provinciales y el resto de las consideraciones de la Ley Electoral actual, suscita un sistema mayoritario, donde los grandes partidos son beneficiados de manera notable. Esto evita la fragmentación del Congreso y busca una gobernabilidad mayor, pero a cambio el sistema pierde bastante proporcionalidad.
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
 	
+	
+	%%%%%%%%%%%%%%%%%%%%%%%% antcc %%%%%%%%%%%%%%%%%%%%%%%%%
 	\section{Simulaciones sobre los resultados electorales.}
-	\subsection{Elecciones del año 2004.}
 	\subsection{Elecciones del año 2015.}
+	
+	Proporcionamos una página web donde se pueden realizar simulaciones de distinto tipo sobre las elecciones al Congreso de los Diputados del pasado 20 de Diciembre de 2015. En concreto, se puede manipular el número de diputados, el método de asignación de votos a escaños, la barrera electoral, la configuración de las circunscripciones, e incluso las alianzas entre algunos partidos.
+	
+	Se puede acceder a esta web a través de la siguiente dirección:\\
+	
+	\vspace{-1em}
+	\textit{https://jmml97.github.io/MiCongreso/}
+	
+	
+	\section*{Bibliografía.}
+
+
+[1] Loosemore, J. \& Hanby, V. (1971): "The theoretical limits of maximum distortion: some analytic expressions for electoral systems". British Journal of Political Science, 467-477.\\
+
+	[2] Laakso, M. (1979): "The Maximum Distortion and the Problem of the First Divisor of Different P.R. Systems". Research Note.\\
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
 \end{document}
