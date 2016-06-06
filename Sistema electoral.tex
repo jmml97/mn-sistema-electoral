@@ -57,6 +57,11 @@
 \definecolor{ciudadanos}{HTML}{EB6109}
 \definecolor{up}{HTML}{019839}
 
+%------ Índice
+
+\usepackage[titles]{tocloft}
+
+
 \begin{document}
 	\title{
 		Sistema electoral español\\
@@ -91,7 +96,7 @@
 	
 	\newpage
 	
-	\tableofcontents
+	\textsf{\tableofcontents}
 	
 	\newpage
 	
@@ -212,11 +217,13 @@
 	
 	Antes de nada, tenemos que tener en cuenta que se contempla en la \textit{LREG} que los partidos cuyo porcentaje de votos con respecto al total de votos válidos emitidos (incluyendo los votos en blanco) no llegue al 3\%, serán excluídos del conteo. Los resultados fueron los siguientes:
 	
+	\console{
 	\begin{itemize}
 	\item Participación: \textit{311.059}
 	\item Votos nulos: \textit{2.410}
 	\item Votos en blanco: \textit{2.204} 
 	\end{itemize}
+	}
 	
 	Así, el número mínimo de votos necesarios para optar a un escaño es:
 	\begin{center}
@@ -280,7 +287,9 @@
 	
 	Aunque el sistema electoral español se caracteriza por ser un sistema de representación proporcional, donde se persigue asignar los escaños a las listas de forma proporcional al número de votos recibidos, alcanzar la proporcionalidad exacta no es posible en general. En efecto, la imposibilidad de asignar un número decimal de escaños hace que inevitablemente se produzcan ciertos errores de redondeo.
 	
-	 Si retomamos el ejemplo anterior de la provincia de Almería, podemos hacer una comparativa de los escaños asignados a cada partido, y los escaños proporcionales que en teoría le corresponden a cada lista. Para ello, dividimos el número de votos de la lista entre el total de votos de los cinco partidos, y multiplicamos por los 6 escaños que se pretenden asignar:
+	 Si retomamos el ejemplo anterior de la provincia de Almería, podemos hacer una comparativa de los escaños asignados a cada partido, y los escaños proporcionales que en teoría le corresponden a cada lista. Para ello, dividimos el número de votos de la lista entre el total de votos de los cinco partidos, y multiplicamos por los 6 escaños que se pretenden asignar: 
+	 
+	 \medskip
 	 
 	 \console{
 	 
@@ -292,11 +301,13 @@
 	 PSOE & 2 & 1.77\\
 	 C's & 1 & 0.88\\
 	 PODEMOS & 1 & 0.79\\
-	 UP & 0 & 0.22
+	 UP & 0 & 0.22 \\
 	 \end{tabular}
 	 \end{center}
 	 }
-	 	 
+	 
+	 \medskip
+	 
 	 Esta distorsión que se produce al aplicar el método \textit{D'Hondt} se puede cuantificar mediante la fórmula de \textit{Loosemore y Hanby}$^{[1]}$:
 	 
 	 \vspace{-0.5em}
@@ -322,24 +333,26 @@
 	 Se puede demostrar que la Ley D'Hondt es la que más distorsión produce$^{[2]}$, en comparación con otras leyes o fórmulas de reparto proporcional de escaños similares.
 	 
 	 Podemos comprobar que la distorsión que se produjo en los resultados de la provincia de Almería, aplicando la fórmula, es de $D = 10.322$. Esta medida nos da una idea de la discrepancia entre los porcentajes de voto general de los electores a cada partido y los representantes paralmentarios obtenidos por cada uno de ellos.
+	 
+	 \newpage
 	
 	\section{Otros sistemas electorales.}
 	
 	En esta sección, comentaremos brevemente otros sistemas electorales, como los de Alemania o Reino Unido, los métodos que se usan en estos sistemas para asignar votos a escaños, y finalmente un ejemplo práctico para poder hacer una comparación de estos métodos con la Ley D'Hondt.
 	
-\paragraph{Reino Unido.}
+\subsection{Reino Unido.}
 
 En el Reino Unido cuentan con la Cámara de los Comunes, formada por 646 miembros que se eligen cada 5 años. Su sistema electoral es el uninominal mayoritario simple (comúnmente llamado $"$el ganador se lo lleva todo$"$), de manera que se divide en 646 circunscripciones o distritos electorales, todas del mismo tamaño. En cada circunscripción se elige un único escaño, que será el representante que más votos obtenga en ese distrito.
 
 Algunos argumentos en contra de este sistema son el de que es poco proporcional (quizá uno de los menos proporcionales), o que provoca situaciones en las que partidos tienen muchos votos y pocos escaños (y viceversa). Los argumentos a favor pueden ser el hecho de que los representantes son directos (controlados por sus electores), y que forma un sistema estable, es decir, crea mayorías absolutas en general.
 
-\paragraph{Alemania.}
+\subsection{Alemania.}
 
 En Alemania cuentan con el Bundestag, que no tiene un número fijo de diputados: se establece que al menos tengan 598 escaños, pero pueden ir añadiendose más para hacer el sistema más proporcional. Utilizan un sistema proporcional personalista a doble voto. El primer voto se realiza igual que en el Reino Unido, dividiéndose en 299 circunscripciones. Con el segundo voto se eligen 299 o más diputados de la siguiente forma: mediante listas cerradas se da el voto concreto al partido, y los escaños se asignan con un sistema llamado Sainte-Laguë, estableciéndose una barrera legal del 5\% para evitar la fragmentación del parlamento.
 
 Este sistema tiene bastantes ventajas, como son una gran proporcionalidad que a la vez permite una buena representación regional, la posibilidad de elegir a los representantes de forma directa, y evita el bipartidismo favoreciendo la representación de los partidos pequeños. Un posible problema es su grado de complejidad, que puede provocar una bajada en la participación electoral.
 
-\subsection{Método Sainte-Laguë}
+\subsubsection{Método Sainte-Laguë.}
 
 Veamos en qué consiste el método Sainte-Laguë para asignar votos a escaños. Es un método de promedio mayor, al igual que la ley D'Hondt, y cuyos cocientes sucesivos se calculan mediante la siguiente expresión:
 
@@ -373,7 +386,7 @@ Retomemos el ejemplo de los resultados de las elecciones del 20 de Diciembre en 
 }
 
 \vspace{0.5em}
-Observamos que el reparto de escaños se mantiene igual que con la Ley D'Hondt. Sin embargo, ahora un escaño $"$cuesta$"$\hspace{0.2em} \textbf{28201}  votos. En esta configuración, el PP no ha estado tan cerca de arrebatarle un escaño a PODEMOS, y además el orden de obtención de los escaños cuarto y quinto se ha invertido.
+Observamos que el reparto de escaños se mantiene igual que con la Ley D'Hondt. Sin embargo, ahora un escaño $"$cuesta$"$\hspace{0.2em} \console{\textbf{28201}}  votos. En esta configuración, el PP no ha estado tan cerca de arrebatarle un escaño a PODEMOS, y además el orden de obtención de los escaños cuarto y quinto se ha invertido.
 	
 	\newpage
 	
@@ -471,6 +484,8 @@ Observamos que el reparto de escaños se mantiene igual que con la Ley D'Hondt. 
 	Por ejemplo, el PSOE tiene 21 diputados más que PODEMOS, contando tan sólo con unos 330.000 votos más. Sin embargo, el caso más reseñable es el de IU-UP, que con más de 920.000 ha obtenido tan sólo dos escaños. Podríamos decir que un escaño de IU $"$ha costado$"$  460.000 votos, mientras que por ejemplo un escaño del PP $"$ha costado$"$ unos 60.000 votos.\\
 	
 	Podemos concluir, a la vista también de los resultados de las elecciones de 2004, que la Ley D'Hondt, aplicada junto con circunscripciones provinciales y el resto de las consideraciones de la Ley Electoral actual, suscita un sistema mayoritario, donde los grandes partidos son beneficiados de manera notable. Esto evita la fragmentación del Congreso y busca una gobernabilidad mayor, pero a cambio el sistema pierde bastante proporcionalidad.
+	
+	\newpage
 	
 	
 	\section{Simulaciones sobre los resultados electorales.}
@@ -587,6 +602,8 @@ Observamos que el reparto de escaños se mantiene igual que con la Ley D'Hondt. 
 	Se puede observar claramente lo rentable que hubiese sido la coalición. Unidad Popular y Podemos obtuvieron en total 71 escaños el 20D. En esta simulación podemos observar que con los mismos votos habrían obtenido 14 diputados más. La mayoría de los escaños se los araña al PP, que pierde 7. También al PSOE (-2), Ciudadanos (-4) y PNV (-1).
 	
 	También podemos ver una de las principales paradojas de nuestro sistema electoral. Debido a la circunscripción provincial, Unidos Podemos habría obtenido más votos que el PSOE (24.34\% frente a 22.00\%) y sin embargo, conseguiría 3 escaños menos.
+	
+	\newpage
 
 	\section{Conclusiones.}
 	
