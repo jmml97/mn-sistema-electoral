@@ -12,6 +12,7 @@
 \usepackage{pgf-pie}
 \usepackage{amsfonts}
 \usepackage{xcolor}
+\usepackage{colortbl}
 \usepackage{framed}
 
 \usepackage{lipsum}
@@ -226,28 +227,31 @@
 	
 	Una vez que se excluyeron aquellos partidos que no alcanzaron $9259$ votos, procedemos a la aplicación del algoritmo ya explicado, resultando en una tabla como la que sigue:
 	
-	\begin{center}
-	\begin{tabular}{|c|c|c|c|c|c|}
-	\hline
-	 & \textbf{PP} & \textbf{PSOE} & \textbf{C's} & \textbf{PODEMOS} & \textbf{UP} \\
-	\hline
-	VOTOS & 117407 & 89022 & 44320 & 39482 & 10776 \\
-	\hline
-	ESCAÑO 1 & 117407 (X) & 89022 & 44320 & 39482 & 10776 \\
-	\hline
-	ESCAÑO 2 & 58703 & 89022 (X) & 44320 & 39482 & 10776 \\
-	\hline
-	ESCAÑO 3 & 58703 (X) & 44511 & 44320 & 39482 & 10776 \\
-	\hline
-	ESCAÑO 4 & 39135 & 44511 (X) & 44320 & 39482 & 10776 \\
-	\hline
-	ESCAÑO 5 & 39135 & 29674 & 44320 (X) & 39482 & 10776 \\
-	\hline
-	ESCAÑO 6 & 39135 & 29674 & 22160 & 39482 (X) & 10776 \\
-	\hline
-\end{tabular}
-\end{center}
-
+	\console{
+		\begin{center}
+			\begin{tabular}{|c|c|c|c|c|c|}
+				\hline
+		 		& \textbf{PP} & \textbf{PSOE} & \textbf{C's} & \textbf{PODEMOS} & \textbf{UP} \\
+				\hline
+				VOTOS & 117407 & 89022 & 44320 & 39482 & 10776 \\
+				\hline
+				ESCAÑO 1 &\cellcolor{gray!25} 117407 & 89022 & 44320 & 39482 & 10776 \\
+				\hline
+				ESCAÑO 2 & 58703 &\cellcolor{gray!25} 89022 & 44320 & 39482 & 10776 \\
+				\hline
+				ESCAÑO 3 &\cellcolor{gray!25} 58703 & 44511 & 44320 & 39482 & 10776 \\
+				\hline
+				ESCAÑO 4 & 39135 &\cellcolor{gray!25} 44511 & 44320 & 39482 & 10776 \\
+				\hline
+				ESCAÑO 5 & 39135 & 29674 &\cellcolor{gray!25} 44320 & 39482 & 10776 \\
+				\hline
+				ESCAÑO 6 & 39135 & 29674 & 22160 &\cellcolor{gray!25} 39482 & 10776 \\
+				\hline
+			\end{tabular}
+		\end{center}
+	}
+	
+	
 \vspace{1em}
   Entonces, en la circunscripción de Almería correspondieron 2 escaños al PP (el primero y el tercero), dos escaños al PSOE (segundo y cuarto), y los dos últimos escaños los obtuvieron C's y PODEMOS, respectivamente.
   
@@ -280,8 +284,10 @@
 	
 	 Si retomamos el ejemplo anterior de la provincia de Almería, podemos hacer una comparativa de los escaños asignados a cada partido, y los escaños proporcionales que en teoría le corresponden a cada lista. Para ello, dividimos el número de votos de la lista entre el total de votos de los cinco partidos, y multiplicamos por los 6 escaños que se pretenden asignar:
 	 
+	 \console{
+	 
 	 \begin{center}
-	 \begin{tabular}{c|c|c}
+	 \begin{tabular}{l|c|c}
 	 \textbf{Partido} & \textbf{Escaños asignados} & \textbf{Escaños proporcionales}\\
 	 \hline
 	 PP & 2 & 2.34\\
@@ -291,6 +297,8 @@
 	 UP & 0 & 0.22
 	 \end{tabular}
 	 \end{center}
+	 }
+	 	 
 	 Esta distorsión que se produce al aplicar el método \textit{D'Hondt} se puede cuantificar mediante la fórmula de \textit{Loosemore y Hanby}$^{[1]}$:
 	 
 	 \vspace{-0.5em}
@@ -367,7 +375,7 @@ $$ i = 1,\ldots,N \Rightarrow C_i = \dfrac{V}{2s + 1}$$
 	donde $C_i$ es el cociente que resulta, en cada caso, de dividir los votos totales $V$ a cada lista por una cantidad $2s + 1$, y $s$ es el número de escaños que la lista ya ha conseguido, inicialmente 0. Sin embargo, se suele usar una modificación de este sistema, donde cuando $s=0$ el cociente inicial es: $$ C_i = \frac{V}{1.4} $$
 
 Retomemos el ejemplo de los resultados de las elecciones del 20 de Diciembre en la provincia de Almería, y veamos cómo se habrían repartido los escaños si hubiésemos usado el método Sainte-Laguë. Debemos notar que en este sistema, se utiliza el redondeo estándar (al entero más próximo).\\
-
+\console{
 \begin{center}
 \begin{tabular}{|c|c|c|c|c|c|}
 	\hline
@@ -375,20 +383,21 @@ Retomemos el ejemplo de los resultados de las elecciones del 20 de Diciembre en 
 	\hline
 	VOTOS & 117407 & 89022 & 44320 & 39482 & 10776 \\
 	\hline
-	ESCAÑO 1 & 83862 (X) & 63587 & 31657 & 28201 & 7697 \\
+	ESCAÑO 1 &\cellcolor{gray!25} 83862 & 63587 & 31657 & 28201 & 7697 \\
 	\hline
-	ESCAÑO 2 & 39136 & 63587 (X) & 31657 & 28201 & 7697 \\
+	ESCAÑO 2 & 39136 &\cellcolor{gray!25} 63587 & 31657 & 28201 & 7697 \\
 	\hline
-	ESCAÑO 3 & 39136 (X) & 29674 & 31657 & 28201 & 7697 \\
+	ESCAÑO 3 &\cellcolor{gray!25} 39136 & 29674 & 31657 & 28201 & 7697 \\
 	\hline
-	ESCAÑO 4 & 23481 & 29674 & 31657 (X) & 28201 & 7697 \\
+	ESCAÑO 4 & 23481 & 29674 &\cellcolor{gray!25} 31657 & 28201 & 7697 \\
 	\hline
-	ESCAÑO 5 & 23481 & 29674 (X) & 14773 & 28201 & 7697 \\
+	ESCAÑO 5 & 23481 &\cellcolor{gray!25} 29674 & 14773 & 28201 & 7697 \\
 	\hline
-	ESCAÑO 6 & 23481 & 17804 & 14773 & 28201 (X) & 7697 \\
+	ESCAÑO 6 & 23481 & 17804 & 14773 &\cellcolor{gray!25} 28201 & 7697 \\
 	\hline 
 \end{tabular}
 \end{center}
+}
 
 \vspace{0.5em}
 Observamos que el reparto de escaños se mantiene igual que con la Ley D'Hondt. Sin embargo, ahora un escaño $"$cuesta$"$\hspace{0.2em} \textbf{28201}  votos. En esta configuración, el PP no ha estado tan cerca de arrebatarle un escaño a PODEMOS, y además el orden de obtención de los escaños cuarto y quinto se ha invertido.
@@ -608,7 +617,7 @@ Observamos que el reparto de escaños se mantiene igual que con la Ley D'Hondt. 
 	\newpage
 	
 	\section*{Bibliografía.}
-
+	\addcontentsline{toc}{section}{Bibliografía.}
 
 	[1] Loosemore, J. \& Hanby, V. (1971): "The theoretical limits of maximum distortion: some analytic expressions for electoral systems". British Journal of Political Science, 467-477.\\
 
