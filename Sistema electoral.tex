@@ -107,7 +107,7 @@
 	
 	El sistema electoral español para las elecciones al Congreso de los Diputados es un sistema sencillo de comprender, al menos comparado con el de otros países como Alemania. El objetivo de este documento no es sólo explicar el funcionamiento y en qué leyes se fundamenta el sistema electoral de nuestro país. También pretende mostrar los problemas que presenta, y exponer las principales críticas que recibe. 
 	
-	Para exponer mejor estas ideas este documento no sólo recoge información sobre nuestro sistema electoral. Ver el funcionamiento de otros sistemas ayuda a comparar ventajas y deficiencias. Por este motivo, en este texto también se comentan brevemente los sistemas vigentes en Alemania y Reino Unido (países que ya fueron mencionados anteriormente) así como otros métodos de reparto de escaños.
+	Para exponer mejor estas ideas este documento no sólo recoge información sobre nuestro sistema electoral. Ver el funcionamiento de otros sistemas ayuda a comparar ventajas y deficiencias. Por este motivo, en este texto también se comentan brevemente los sistemas vigentes en Alemania y Reino Unido así como otros métodos de reparto de escaños.
 	
 	Sin duda, apoyarse en datos reales es una de las mejores formas de presentar y explicar información. Este documento no se limita a explicar los fundamentos teóricos de los sistemas electorales analizados, sino que también recoge resultados reales de elecciones. Pero lo más interesante es utilizar estos datos y realizar simulaciones con ellos empleando distintos métodos. El uso de simulaciones permite apreciar de forma mucho más fácil las diferencias entre los sistemas electorales explicados teóricamente.
 	
@@ -182,10 +182,12 @@
 	
 	En primer lugar, tal y como garantiza la \textit{LREG}, a Almería le corresponden inicialmente dos escaños. Veamos los datos del censo provincial y estatal, que necesitaremos para hacer los cálculos:
 	
+	\console{
 	\begin{itemize}
 	\item Población de derecho en la circunscripción de Almería: \textit{452.590}
 	\item Población de derecho en el ámbito estatal: \textit{34.630.253}
 	\end{itemize}
+	}
 	
 	Calculamos primero la cuota de reparto, resultante de dividir la población de derecho total por 248 (número de diputados restantes después de asignar dos a cada provincia, uno a Ceuta y otro a Melilla).
 
@@ -497,6 +499,44 @@ Observamos que el reparto de escaños se mantiene igual que con la Ley D'Hondt. 
 	
 	\vspace{-1em}
 	\console{\textit{https://jmml97.github.io/MiCongreso/}}
+	
+	\subsubsection{Método de Sainte-Laguë}
+	
+	Vamos a realizar una simulación de los resultados del 20D utilizando el método de Sainte-Laguë. El hemiciclo queda como sigue:
+	
+	\console{
+		\begin{center}
+			\begin{tikzpicture}
+				\begin{scope}[yscale=1,xscale=-1]
+	 		  		\pie[pos={6,0}, sum=700, after number=, radius=4, color={pp, psoe, podemos, ciudadanos, gray }, text=legend]{107/PP, 86/PSOE, 73/Podemos, 51/Ciudadanos, 33/Otros} 
+				\end{scope}			\end{tikzpicture}
+		\end{center}
+	}
+	
+	Los partidos que obtuvieron representación parlamentaria:
+	
+	\console {	
+		\noindent\makebox[\textwidth]{%
+				\begin{tabular}{|l|r|r|r|}
+				\hline
+					\textbf{Lista electoral} & \textbf{Dip. simulación} & \textbf{Diputados 20D} & \textbf{Diferencia}\\ \hline
+					Partido Popular\footnotemark & 107 & 123 & -16 \\ \hline
+					Partido Socialista Obrero Español\footnotemark & 86 & 90 & -4 \\ \hline
+					Podemos \footnotemark & 73 & 69 & +4 \\ \hline
+					Ciudadanos-Partido de la Ciudadanía & 51 & 40 & +11 \\ \hline
+					Unidad Popular: IU, Unidad Popular en Común & 8 & 2 & +6 \\ \hline
+					Esquerra Republicana de Catalunya-Catalunya Sí & 8 & 9 & -1\\ \hline
+					Democràcia i Llibertat & 7 & 8 & -1 \\ \hline
+					Euzko Alderdi Jeltzalea-Partido Nacionalista Vasco & 5 & 6 & -1\\ \hline
+					Euskal Herria Bildu & 3 & 2 & +1 \\ \hline
+					Més & 1 & 0 & +1 \\ \hline
+					Coalición Canaria-Partido Nacionalista Canario & 1 & 1 & 0 \\
+				\hline	
+				\end{tabular}
+		}
+	}
+	
+	El partido más beneficiado sería Ciudadanos, que obtendría 11 escaños más. El más perjudicado, el PP que perdería 16. Izquierda Unida Unidad Popular hubiese obtenido 6 escaños más, llegando a los 8 y Més entraría en el parlamento con un escaño.
 	
 	\subsubsection{Circunscripción única con corte en el 3\%.}
 	
