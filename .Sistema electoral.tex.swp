@@ -1,0 +1,263 @@
+\documentclass[11pt]{article}
+\usepackage [utf8]{inputenc}
+\usepackage [spanish]{babel}
+\usepackage{multicol}
+\usepackage{parskip}
+\usepackage[margin=3cm]{geometry}
+\usepackage{enumerate}
+\usepackage{graphicx}
+\usepackage{mathtools}
+\usepackage{setspace}
+\usepackage{pgfplots}
+\usepackage{pgf-pie}
+\usepackage{amsfonts}
+\usepackage{xcolor}
+\usepackage{framed}
+
+%---- Fuentes
+
+\usepackage{fontspec}
+\setsansfont{Montserrat}[
+  Path          = ./fonts/ ,
+	Extension		  = .ttf ,	UprightFont		= *-Regular ,	BoldFont		  = *-Bold]
+\newfontfamily\headingfont{Montserrat}[
+  Path          = ./fonts/ ,
+	Extension		  = .ttf ,	UprightFont		= *-Regular ,	BoldFont		  = *-Bold]
+\setmainfont{SourceSerifPro}[
+  Path          = ./fonts/ ,
+	Extension		  = .ttf ,	UprightFont		= *-Regular ,	BoldFont		  = *-Bold]
+\newfontfamily\inconsolata{Inconsolata}[
+  Path          = ./fonts/ ,
+	Extension		  = .ttf ,	UprightFont		= *-Regular ,	BoldFont		  = *-Bold]
+
+\newcommand\console[1]{{\inconsolata #1}}
+
+%----- Encabezados
+
+\usepackage{titlesec}
+\usepackage{titling}
+
+\renewcommand{\maketitlehooka}{\headingfont}
+
+\titleformat*{\section}{\huge\bfseries\sffamily}
+\titleformat*{\subsection}{\Large\bfseries\sffamily}
+\titleformat*{\subsubsection}{\itshape\subsubsectionfont}
+
+%----- Colores
+
+\definecolor{pp}{HTML}{00A3DF}
+\definecolor{psoe}{HTML}{EE1C25}
+\definecolor{podemos}{HTML}{672F6C}
+\definecolor{ciudadanos}{HTML}{EB6109}
+
+\begin{document}
+	\title{
+		Sistema electoral español\\
+		\vspace*{1\baselineskip}
+		\large 1ºDGIIM \\
+		Métodos Numéricos 
+		\vspace*{1\baselineskip}
+	} 
+	
+	\date{31-03-16}
+	\author{Antonio Coín Castro \and José María Martín Luque \and Miguel Lentisco Ballesteros}
+	
+	%\maketitle
+	
+	\fontsize{72}{60}{
+		\headingfont{\raggedright{\textbf{Sistema}}} \\\\
+		\headingfont{\raggedright{\textbf{Electoral}}} \\\\
+		\headingfont{\raggedright{\textbf{Español}}} \\\\\\\\
+	}
+	
+	\vfill
+	
+	\fontsize{20}{28}{
+		\inconsolata{
+			\raggedright{Antonio Coín Castro} \\
+			\raggedright{Miguel Lentisco Ballesteros} \\
+			\raggedright{José María Martín Luque} \\
+		}
+	}
+	\thispagestyle{empty}
+	\newpage
+	
+	\fontsize{11}{14}
+	
+	\section{Sistema electoral español.}
+	
+	Actualmente el sistema electoral español está sustentado tanto en la Constitución de 1978 como en la Ley Orgánica 5/1985, de 19 de junio, del Régimen Electoral General.
+	
+	El Congreso de los diputados está formado por trescientos cincuenta Diputados, como recoge el artículo 162 de la Ley Electoral. La elección de los miembros de la cámara baja se hace por circunscripciones: a cada una de ellas le corresponde un número concreto de diputados a elegir.
+	
+	Sobre la distribución de escaños en circunscripciones, la Ley Orgánica 5/1985, de 19 de junio, del Régimen Electoral General recoge lo siguiente: \\
+	\console{
+	\begin{leftbar}
+		\textbf{Artículo 161.}
+		
+		\begin{enumerate}
+			\item Para la elección de Diputados y Senadores, cada provincia constituirá una circunscripción electoral. Asimismo, las ciudades de Ceuta y Melilla serán consideradas, cada una de ellas, como circunscripciones electorales.
+		\end{enumerate}
+		
+		\textbf{Artículo 162.}
+		
+		\begin{enumerate}
+			\item El Congreso está formado por trescientos cincuenta Diputados.
+			\item A cada provincia le corresponde un mínimo inicial de dos Diputados. Las poblaciones de Ceuta y Melilla están representadas cada una de ellas por un Diputado.
+			\item Los doscientos cuarenta y ocho Diputados restantes se distribuyen entre las provincias en proporción a su población, conforme al siguiente procedimiento:
+				\begin{enumerate}[a)]
+					\item Se obtiene una cuota de reparto resultante de dividir por doscientos cuarenta y ocho la cifra total de la población de derecho de las provincias peninsulares e insulares.
+					\item Se adjudican a cada provincia tantos Diputados como resulten, en números enteros, de dividir la población de derecho provincial por la cuota de reparto.
+					\item Los Diputados restantes se distribuyen asignando uno a cada una de las provincias cuyo cociente, obtenido conforme al apartado anterior, tenga una fracción decimal mayor. \\
+				\end{enumerate}
+		\end{enumerate}
+	\end{leftbar}
+	}
+
+	En consecuencia, el número de diputados que corresponden a cada circunscripción se asignan en cada convocatoria electoral, pues la población varía con el paso del tiempo.
+	
+	En cuanto a la asignación de escaños en función de los votos obtenidos, dicha Ley Orgánica refleja lo siguiente:
+	
+\console{
+	\begin{leftbar}
+	\textbf{Artículo 163.}
+	
+	\begin{enumerate}
+		\item La atribución de los escaños en función de los resultados del escrutinio se realiza conforme a las siguientes reglas:
+		\begin{enumerate}[a)]
+				\item No se tienen en cuenta aquellas candidaturas que no hubieran obtenido, al menos, el 3 por 100 de los votos válidos emitidos en la circunscripción.
+				\item Se ordenan de mayor a menor, en una columna, las cifras de votos obtenidos por las restantes candidaturas.
+				\item Se divide el número de votos obtenidos por cada candidatura por 1, 2, 3, etcétera, hasta un número igual al de escaños correspondientes a la circunscripción [\dots]. Los escaños se atribuyen a las candidaturas que obtengan los cocientes mayores en el cuadro, atendiendo a un orden decreciente.
+			\end{enumerate}
+	\end{enumerate}
+	\end{leftbar}
+	}
+	
+		La Constitución Española, en el artículo 68 dice lo siguiente sobre la composición del Congreso de los Diputados y el reparto de escaños:
+	
+	\begin{enumerate}
+		\item El Congreso se compone de un mínimo de 300 y un máximo de 400 Diputados, elegidos por sufragio universal, libre, igual, directo y secreto, en los términos que establezca la ley.
+		\item La circunscripción electoral es la provincia. Las poblaciones de Ceuta y Melilla estarán representadas cada una de ellas por un Diputado. La ley distribuirá el número total de Diputados, asignando una representación mínima inicial a cada circunscripción y distribuyendo los demás en proporción a la población.
+		\item La elección se verificará en cada circunscripción atendiendo a criterios de representación proporcional. \\
+	\end{enumerate}
+	
+	\subsection{Cómo se reparten los escaños.}
+	
+	El proceso descrito en el artículo 163 de la Ley Orgánica 5/1985, de 19 de junio, del Régimen Electoral General citado anteriormente es un algoritmo de aplicación de la llamada \textit{Ley D'Hondt}, en honor a Victor D'Hondt, jurista belga que la concibió en 1874.
+	
+	La Ley D'Hondt o Sistema D'Hondt es un método de promedio mayor para asignar escaños en sistemas de representación proporcional por listas electorales. Los métodos de promedio mayor consisten en dividir los votos obtenidos por cada lista por cocientes sucesivos, y se asignan los escaños a los cocientes mayores que vayan resultando.
+	
+	Concretamente, este método de asignación de votos a escaos contemplala siguiente fórmula para el cálculo de los cocientes:
+	
+	$$C_i = \dfrac{V}{s_i + 1}$$
+	
+	
+	
+	\subsection{Problemas de redondeo.}
+	
+	Aunque el sistema electoral español se caracteriza por ser un sistema de representación proporcional, donde se persigue asignar los escaños a las listas de forma proporcional al número de votos recibidos, alcanzar la proporcionalidad exacta no es posible en general. En efecto, la imposibilidad de asignar un número decimal de escaños hace que inevitablemente se produzcan ciertos errores de redondeo.
+	
+	 Si retomamos el ejemplo anterior, podemos hacer una comparativa de los escaños asignados a cada partido, y los escaños proporcionales que en teoría le corresponden a cada lista:
+	 
+	 TABLA
+	 
+	 Más aún, en el proceso de asignación de escaños a las circunscripciones, se produce también un error de redondeo. Como la atribución de escaños a cada circunscripción se realiza en cada convocatoria electoral, pequeñas fluctuaciones en la población pueden afectar al recuento total de escaños de cada provincia.
+	
+	\subsection{Críticas al sistema electoral actual.}
+	
+	\newpage
+	
+	\section{Análisis de resultados electorales.}
+	\subsection{Elecciones del año 2004.}
+	
+	Las elecciones generales del año 2004 tuvieron lugar el domingo 14 de marzo. Los españoles acudieron a las urnas a votar tan sólo tres días después de los atentados del 11M, en los que murieron 193 personas. A pesar de que todas las encuestas apuntaban a una victoria del PP, finalmente las elecciones fueron ganadas por el PSOE, lo que permitió a José Luis Rodríguez Zapatero convertirse en presidente del Gobierno.
+	
+	La composición del Congreso quedó como sigue:
+	
+	\console{
+		\begin{center}
+			\begin{tikzpicture}
+				\begin{scope}[yscale=1,xscale=-1]
+	 		  		\pie[pos={6,0}, sum=700, after number=, radius=4, color={psoe, pp, gray }, text=legend]{164/PSOE, 148/PP, 38/Otros} 
+				\end{scope}			\end{tikzpicture}
+		\end{center}
+	}
+	
+	En esta tabla se pueden consultar los resultados de todas las fuerzas políticas que obtuvieron representación parlamentaria.
+	
+	\noindent\makebox[\textwidth]{
+		\console{
+				\begin{tabular}{|l|r|r|r|}
+				\hline
+					\textbf{Lista electoral} & \textbf{Votos} & \textbf{Votos (\%)} & \textbf{Diputados} \\ \hline
+					Partido Socialista Obrero Español\footnotemark & 11 026 163 & 42.59\% & 164 \\ \hline
+					Partido Popular\footnotemark & 9 763 144 & 37.71\% & 148 \\ \hline
+					Izquierda Unida\footnotemark & 1 284 081 & 4.96\% & 5 \\ \hline
+					Conergència i Unió & 835 471 & 3.23\% & 10 \\ \hline
+					Esquerra Republicana de Catalunya-Catalunya Sí & 652 196 & 2.52\% & 8 \\ \hline
+					Euzko Alderdi Jeltzalea-Partido Nacionalista Vasco & 420 980 & 1.63\% & 7 \\ \hline
+					Coalición Canaria\footnotemark & 235 22 & 0.91\% & 3 \\ \hline
+					Bloque Nacionalista Gallego & 208 688 & 0.81\% & 2 \\ \hline
+					Chunta Aragonesista & 94 252 & 0.36 & 1 \\ \hline
+					Eusko Alkartasuna & 80 905 & 0.30\% & 1 \\ \hline
+					Nafarroa Bai & 61 045 & 0.24\% & 1 \\ 
+				\hline	
+				\end{tabular}
+		}
+	}
+	
+	\footnotetext[1]{Incluye a la Confederación de Los Verdes (LV) y Coalición Extremeña (PREx-CREx), y el apoyo de Unión Demócrata Ceutí (UDC).}
+	\footnotetext[2]{Incluye a Unión del Pueblo Navarro (UPN), Unión del Pueblo Melillense (UPM), Unión Valenciana (UV) e Independientes de Fuerteventura.}
+	\footnotetext[3]{Incluye a Iniciativa per Catalunya-Verds (ICV), Esquerra Unida i Alternativa (EUiA), Los Verdes de Aragón, Los Verdes de Canarias, Alternativa Ciudadana 25 de Mayo, Els Verds del País Valencià (EVPV), Socialistas Independientes de Extremadura (SIEX), Bloque por Asturies (BA), Izquierda Republicana (IR) en la Comunidad Valenciana, Partido Revolucionario de los Trabajadores-Izquierda Revolucionaria (PRT), Partido Obrero Revolucionario (POR), Corriente Roja y Espacio Alternativo, y el apoyo de Red Verde.}
+	\footnotetext[4]{Incluye al Partido Nacionalista de Lanzarote (PNL).}
+
+	\newpage
+	
+	\subsection{Elecciones del año 2015.}
+	
+	Las elecciones generales del año 2015 se celebraron el domingo 20 de diciembre. La aparición de dos nuevos partidos, Podemos y Ciudadanos, puso fin al bipartidismo imperante en España desde 1982. De las elecciones del 20D surgió un Congreso mucho más fragmentado, sin ninguna mayoría clara, que obligó a las fuerzas políticas a llegar a acuerdos para formar un Gobierno. El vencedor de las elecciones fue el Partido Popular, con 123 escaños (lejos de la mayoría absoluta, que está en 176 escaños), frente a los 90 del PSOE, los 69 de Podemos y los 40 de Ciudadanos.
+	
+	La composición del Congreso quedó como sigue:
+	
+	\console{
+		\begin{center}
+			\begin{tikzpicture}
+				\begin{scope}[yscale=1,xscale=-1]
+	 		  		\pie[pos={6,0}, sum=700, after number=, radius=4, color={pp, psoe, podemos, ciudadanos, gray }, text=legend]{123/PP, 90/PSOE, 69/Podemos, 40/Ciudadanos, 28/Otros} 
+				\end{scope}			\end{tikzpicture}
+		\end{center}
+	}
+	
+	En esta tabla se pueden consultar los resultados de todas las fuerzas políticas que obtuvieron representación parlamentaria.
+	
+	\console {	
+		\noindent\makebox[\textwidth]{%
+				\begin{tabular}{|l|r|r|r|}
+				\hline
+					\textbf{Lista electoral} & \textbf{Votos} & \textbf{Votos (\%)} & \textbf{Diputados} \\ \hline
+					Partido Popular\footnotemark & 7 236 965 & 28.71\% & 121 \\ \hline
+					Partido Socialista Obrero Español\footnotemark & 5 545 315 & 22.00\% & 90 \\ \hline
+					Podemos \footnotemark & 5 212 711 & 20.66\% & 69 \\ \hline
+					Ciudadanos-Partido de la Ciudadanía & 3 514 528 & 13.94\% & 40 \\ \hline
+					Unidad Popular: IU, Unidad Popular en Común & 926 783 & 3.68\% & 2 \\ \hline
+					Esquerra Republicana de Catalunya-Catalunya Sí & 601 782 & 2.39\% & 9 \\ \hline
+					Democràcia i Llibertat & 567 253 & 2.25\% & 6 \\ \hline
+					Euzko Alderdi Jeltzalea-Partido Nacionalista Vasco & 302 316 & 1.20\% & 6 \\ \hline
+					Euskal Herria Bildu & 219 125 & 0.87\% & 2 \\ \hline
+					Coalición Canaria-Partido Nacionalista Canario & 81 917 & 0.32\% & 1 \\
+				\hline	
+				\end{tabular}
+		}
+	}
+	
+	\footnotetext[5]{Incluye a Foro Asturias.}
+	\footnotetext[6]{Incluye a Nueva Canarias.}
+	\footnotetext[7]{Incluye a En Comú Podem, Compromís-Podemos-És el moment y En Marea.}
+	
+	
+	
+	\section{Simulaciones sobre los resultados electorales.}
+	\subsection{Elecciones del año 2004.}
+	\subsection{Elecciones del año 2015.}
+	
+\end{document}
