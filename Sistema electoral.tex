@@ -20,15 +20,19 @@
 
 \usepackage{fontspec}
 \setsansfont{Montserrat}[
-	Extension		= .ttf ,	UprightFont		= *-Regular ,	BoldFont		= *-Bold]
+  	Path          = ./fonts/ ,
+	Extension		  = .ttf ,	UprightFont		= *-Regular ,	BoldFont		  = *-Bold]
 \newfontfamily\headingfont{Montserrat}[
-	Extension		= .ttf ,	UprightFont		= *-Regular ,	BoldFont		= *-Bold]
+  	Path          = ./fonts/ ,
+	Extension		  = .ttf ,	UprightFont		= *-Regular ,	BoldFont		  = *-Bold]
 \setmainfont{Lora}[
+	Path          = ./fonts/ ,
 	Extension		= .ttf ,	UprightFont		= *-Regular ,	BoldFont		= *-Bold ,
 	ItalicFont		= *-Italic ,
 	BoldItalicFont	= *-BoldItalic]
 \newfontfamily\inconsolata{Inconsolata}[
-	Extension		= .ttf ,	UprightFont		= *-Regular ,	BoldFont		= *-Bold]
+ 	Path          = ./fonts/ ,
+	Extension		  = .ttf ,	UprightFont		= *-Regular ,	BoldFont		  = *-Bold]
 
 \newcommand\console[1]{{\inconsolata #1}}
 
@@ -163,10 +167,31 @@
 
 	\end{leftbar}
 	}
+
+	En consecuencia, el número de diputados que corresponden a cada circunscripción se asignan en cada convocatoria electoral, pues la población varía con el paso del tiempo.
 	
-		
 	\subsection{Cómo se reparten los escaños.}
-	\subsection{Redondeo.}
+	
+	El proceso descrito en el artículo 163 de la Ley Orgánica 5/1985, de 19 de junio, del Régimen Electoral General citado anteriormente es un algoritmo de aplicación de la llamada \textit{Ley D'Hondt}, en honor a Victor D'Hondt, jurista belga que la concibió en 1874.
+	
+	La Ley D'Hondt o Sistema D'Hondt es un método de promedio mayor para asignar escaños en sistemas de representación proporcional por listas electorales. Los métodos de promedio mayor consisten en dividir los votos obtenidos por cada lista por cocientes sucesivos, y se asignan los escaños a los cocientes mayores que vayan resultando.
+	
+	Concretamente, este método de asignación de votos a escaos contemplala siguiente fórmula para el cálculo de los cocientes:
+	
+	$$C_i = \dfrac{V}{s_i + 1}$$
+	
+	
+	
+	\subsection{Problemas de redondeo.}
+	
+	Aunque el sistema electoral español se caracteriza por ser un sistema de representación proporcional, donde se persigue asignar los escaños a las listas de forma proporcional al número de votos recibidos, alcanzar la proporcionalidad exacta no es posible en general. En efecto, la imposibilidad de asignar un número decimal de escaños hace que inevitablemente se produzcan ciertos errores de redondeo.
+	
+	 Si retomamos el ejemplo anterior, podemos hacer una comparativa de los escaños asignados a cada partido, y los escaños proporcionales que en teoría le corresponden a cada lista:
+	 
+	 TABLA
+	 
+	 Más aún, en el proceso de asignación de escaños a las circunscripciones, se produce también un error de redondeo. Como la atribución de escaños a cada circunscripción se realiza en cada convocatoria electoral, pequeñas fluctuaciones en la población pueden afectar al recuento total de escaños de cada provincia.
+	
 	\subsection{Críticas al sistema electoral actual.}
 	
 	\paragraph{Falta de proporcionalidad.}
@@ -181,7 +206,7 @@
 	
 	Las listas abiertas o desbloqueadas propician el acercamiento los candidatos a los electores, ya que estos deben hacer campaña individualmente para intentar obtener mejores resultados que el resto de candidatos (y obtener el escaño).
 	
-	
+
 	
 	\newpage
 	
