@@ -14,20 +14,24 @@
 \usepackage{xcolor}
 \usepackage{framed}
 
+\usepackage{lipsum}
+
 %---- Fuentes
 
 \usepackage{fontspec}
 \setsansfont{Montserrat}[
-  Path          = ./fonts/ ,
+  	Path          = ./fonts/ ,
 	Extension		  = .ttf ,	UprightFont		= *-Regular ,	BoldFont		  = *-Bold]
 \newfontfamily\headingfont{Montserrat}[
-  Path          = ./fonts/ ,
+  	Path          = ./fonts/ ,
 	Extension		  = .ttf ,	UprightFont		= *-Regular ,	BoldFont		  = *-Bold]
-\setmainfont{SourceSerifPro}[
-  Path          = ./fonts/ ,
-	Extension		  = .ttf ,	UprightFont		= *-Regular ,	BoldFont		  = *-Bold]
+\setmainfont{Lora}[
+	Path          = ./fonts/ ,
+	Extension		= .ttf ,	UprightFont		= *-Regular ,	BoldFont		= *-Bold ,
+	ItalicFont		= *-Italic ,
+	BoldItalicFont	= *-BoldItalic]
 \newfontfamily\inconsolata{Inconsolata}[
-  Path          = ./fonts/ ,
+ 	Path          = ./fonts/ ,
 	Extension		  = .ttf ,	UprightFont		= *-Regular ,	BoldFont		  = *-Bold]
 
 \newcommand\console[1]{{\inconsolata #1}}
@@ -41,7 +45,8 @@
 
 \titleformat*{\section}{\huge\bfseries\sffamily}
 \titleformat*{\subsection}{\Large\bfseries\sffamily}
-\titleformat*{\subsubsection}{\itshape\subsubsectionfont}
+\titleformat*{\subsubsection}{\large\bfseries\sffamily}
+\titleformat*{\paragraph}{\large\bfseries\sffamily}
 
 %----- Colores
 
@@ -49,6 +54,7 @@
 \definecolor{psoe}{HTML}{EE1C25}
 \definecolor{podemos}{HTML}{672F6C}
 \definecolor{ciudadanos}{HTML}{EB6109}
+\definecolor{up}{HTML}{019839}
 
 \begin{document}
 	\title{
@@ -80,19 +86,55 @@
 		}
 	}
 	\thispagestyle{empty}
+	\fontsize{11}{14}
+	
 	\newpage
 	
-	\fontsize{11}{14}
+	\tableofcontents
+	
+	\newpage
+	
+	\section*{Preámbulo.}
+	\addcontentsline{toc}{section}{Preámbulo.}
+	
+	Todas las democracias tienen algo en común: \textit{la soberanía nacional reside en el pueblo}. Ahí se acaban las coincidencias: hay muchas formas de implementar la democracia. La más extendida es la democracia representativa: el pueblo elige a representantes que tomarán decisiones por ellos en los órganos de poder. España es un país con una democracia representativa. Los ciudadanos españoles eligen mediante el voto a sus representantes en el Congreso de los Diputados y el Senado, sedes del poder legislativo. Para transformar \textit{votos} en \textit{escaños} (así es como se denominan cada uno de los asientos que ocupan los representantes políticos en las cámaras parlamentarias) existen diversos métodos o sistemas. Explicar el funcionamiento de nuestro sistema es el tema que nos ocupa en este trabajo.
+	
+	El sistema electoral español para las elecciones al Congreso de los Diputados es un sistema sencillo de comprender, al menos comparado con el de otros países como Alemania o Reino Unido. El objetivo de este documento no es sólo explicar el funcionamiento y en qué leyes se fundamenta el sistema electoral de nuestro país. También pretende mostrar los problemas que presenta, y exponer las principales críticas que recibe. 
+	
+	Para exponer mejor estas ideas este documento no sólo recoge información sobre nuestro sistema electoral. Ver el funcionamiento de otros sistemas ayuda a comparar ventajas y deficiencias. Por este motivo, en este texto también se comentan brevemente los sistemas vigentes en Alemania y Reino Unido (países que ya fueron mencionados anteriormente) así otros métodos de reparto de escaños.
+	
+	Sin duda, apoyarse en datos reales es una de las mejores formas de presentar y explicar información. Este documento no se limita a explicar los fundamentos teóricos de los sistemas electorales analizados, sino que también recoge resultados reales de elecciones. Pero lo más interesante es utilizar estos datos y realizar simulaciones con ellos empleando distintos métodos. El uso de simulaciones permite apreciar de forma mucho más fácil las diferencias entre los sistemas electorales explicados teóricamente.
+	
+	Una vez finalizada la lectura de este escrito se espera que el lector haya adquirido el conocimiento suficiente como para comprender el funcionamiento de nuestro sistema electoral y cómo se compara con otros alternativos.
+		
+	\newpage
 	
 	\section{Sistema electoral español.}
 	
-	Actualmente el sistema electoral español está sustentado tanto en la Constitución de 1978 como en la Ley Orgánica 5/1985, de 19 de junio, del Régimen Electoral General.
+	Actualmente el sistema electoral español está sustentado tanto en la Constitución de 1978 como en la Ley Orgánica 5/1985, de 19 de junio, del Régimen Electoral General. En este documento se recoge el sistema electoral para la elección de los diputados del Congreso. El Congreso de los diputados es la sede del Poder Legislativo. Está formado por trescientos cincuenta Diputados, como recoge el artículo 162 de la Ley Electoral. La elección de los miembros de esta cámara se hace por sufragio universal entre los ciudadanos españoles mayores de 18 años.
 	
-	El Congreso de los diputados está formado por trescientos cincuenta Diputados, como recoge el artículo 162 de la Ley Electoral. La elección de los miembros de la cámara baja se hace por circunscripciones: a cada una de ellas le corresponde un número concreto de diputados a elegir.
+	Los electores votan \textit{listas electorales}, una relación de aspirantes a obtener un escaño que se presentan bajo un mismo partido o coalición. Estas listas deben ser presentadas a nivel provincial. De esta forma, a cada provincia le corresponde un número concreto de diputados. Se dice que las provincias constituyen la circunscripción electoral. Por este motivo, los partidos presentan a sus candidatos en las distintas circunscripciones para intentar conseguir el mayor número de diputados posible.
 	
-	Sobre la distribución de escaños en circunscripciones, la Ley Orgánica 5/1985, de 19 de junio, del Régimen Electoral General recoge lo siguiente: \\
+	La Constitución sienta las bases del sistema electoral, pero es una ley la que tendrá que regularlo por completo. Básicamente se limita a mencionar algunos aspectos básicos que debe cumplir dicha ley, como el número de diputados o la elección de éstos. \\
+	
+	\console{
+		\begin{leftbar}
+			\textbf{CONSTITUCIÓN ESPAÑOLA.} \\
+			\textbf{Artículo 68.}
+			
+			\begin{enumerate}
+			\item El Congreso se compone de un mínimo de 300 y un máximo de 400 Diputados, elegidos por sufragio universal, libre, igual, directo y secreto, en los términos que establezca la ley.
+			\item La circunscripción electoral es la provincia. Las poblaciones de Ceuta y Melilla estarán representadas cada una de ellas por un Diputado. La ley distribuirá el número total de Diputados, asignando una representación mínima inicial a cada circunscripción y distribuyendo los demás en proporción a la población.
+			\item La elección se verificará en cada circunscripción atendiendo a criterios de representación proporcional. \\
+		\end{enumerate}	
+		\end{leftbar}
+	}
+	
+	La ley que cumple esta función es la Ley del Régimen Electoral General. En ella se acaban de detallar los procedimientos brevemente esbozados en la Constitución. Da cifras concretas del número de parlamentarios y especifica el método a seguir para traducir votos a escaños así como para calcular el número de escaños de cada circunscripción. Así, los artículos 161, 162 y 163 de esta ley detallan en profundidad los puntos 1, 2 y 3 del artículo 68 de la Constitución. \\
+	
 	\console{
 	\begin{leftbar}
+		\textbf{LEY DEL RÉGIMEN ELECTORAL GENERAL.} \\
 		\textbf{Artículo 161.}
 		
 		\begin{enumerate}
@@ -108,38 +150,25 @@
 				\begin{enumerate}[a)]
 					\item Se obtiene una cuota de reparto resultante de dividir por doscientos cuarenta y ocho la cifra total de la población de derecho de las provincias peninsulares e insulares.
 					\item Se adjudican a cada provincia tantos Diputados como resulten, en números enteros, de dividir la población de derecho provincial por la cuota de reparto.
-					\item Los Diputados restantes se distribuyen asignando uno a cada una de las provincias cuyo cociente, obtenido conforme al apartado anterior, tenga una fracción decimal mayor. \\
+					\item Los Diputados restantes se distribuyen asignando uno a cada una de las provincias cuyo cociente, obtenido conforme al apartado anterior, tenga una fracción decimal mayor.
 				\end{enumerate}
 		\end{enumerate}
+		
+		\textbf{Artículo 163}.
+	
+		\begin{enumerate}
+			\item La atribución de los escaños en función de los resultados del escrutinio se realiza conforme a las siguientes reglas:
+			\begin{enumerate}[a)]
+					\item No se tienen en cuenta aquellas candidaturas que no hubieran obtenido, al menos, el 3 por 100 de los votos válidos emitidos en la circunscripción.
+					\item Se ordenan de mayor a menor, en una columna, las cifras de votos obtenidos por las restantes candidaturas.
+					\item Se divide el número de votos obtenidos por cada candidatura por 1, 2, 3, etcétera, hasta un número igual al de escaños correspondientes a la circunscripción, formándose un cuadro similar al que aparece en el ejemplo práctico. Los escaños se atribuyen a las candidaturas que obtengan los cocientes mayores en el cuadro, atendiendo a un orden decreciente.
+				\end{enumerate}
+		\end{enumerate}
+
 	\end{leftbar}
 	}
 
 	En consecuencia, el número de diputados que corresponden a cada circunscripción se asignan en cada convocatoria electoral, pues la población varía con el paso del tiempo.
-	
-	En cuanto a la asignación de escaños en función de los votos obtenidos, dicha Ley Orgánica refleja lo siguiente:
-	
-\console{
-	\begin{leftbar}
-	\textbf{Artículo 163.}
-	
-	\begin{enumerate}
-		\item La atribución de los escaños en función de los resultados del escrutinio se realiza conforme a las siguientes reglas:
-		\begin{enumerate}[a)]
-				\item No se tienen en cuenta aquellas candidaturas que no hubieran obtenido, al menos, el 3 por 100 de los votos válidos emitidos en la circunscripción.
-				\item Se ordenan de mayor a menor, en una columna, las cifras de votos obtenidos por las restantes candidaturas.
-				\item Se divide el número de votos obtenidos por cada candidatura por 1, 2, 3, etcétera, hasta un número igual al de escaños correspondientes a la circunscripción [\dots]. Los escaños se atribuyen a las candidaturas que obtengan los cocientes mayores en el cuadro, atendiendo a un orden decreciente.
-			\end{enumerate}
-	\end{enumerate}
-	\end{leftbar}
-	}
-	
-		La Constitución Española, en el artículo 68 dice lo siguiente sobre la composición del Congreso de los Diputados y el reparto de escaños:
-	
-	\begin{enumerate}
-		\item El Congreso se compone de un mínimo de 300 y un máximo de 400 Diputados, elegidos por sufragio universal, libre, igual, directo y secreto, en los términos que establezca la ley.
-		\item La circunscripción electoral es la provincia. Las poblaciones de Ceuta y Melilla estarán representadas cada una de ellas por un Diputado. La ley distribuirá el número total de Diputados, asignando una representación mínima inicial a cada circunscripción y distribuyendo los demás en proporción a la población.
-		\item La elección se verificará en cada circunscripción atendiendo a criterios de representación proporcional. \\
-	\end{enumerate}
 	
 	\subsection{Cómo se reparten los escaños.}
 	
@@ -164,6 +193,20 @@
 	 Más aún, en el proceso de asignación de escaños a las circunscripciones, se produce también un error de redondeo. Como la atribución de escaños a cada circunscripción se realiza en cada convocatoria electoral, pequeñas fluctuaciones en la población pueden afectar al recuento total de escaños de cada provincia.
 	
 	\subsection{Críticas al sistema electoral actual.}
+	
+	\paragraph{Falta de proporcionalidad.}
+	
+	La Constitución dice en su artículo número 68 que "la elección se verificará \textbf{en cada circunscripción} atendiendo a criterios de representación proporcional". Es decir, nuestro sistema electoral \textbf{no es proporcional} en el conjunto del Estado, pero sí que lo es en la \textbf{provincia}. O lo que es lo mismo, la propia Constitución no asegura que la distribución de escaños a nivel estatal se corresponda de forma proporcional al cómputo total de los votos.
+	
+	\paragraph{Circunscripción provincial.}
+	
+	Se suele culpar a la Ley D'Hondt de la falta de proporcionalidad en los resultados Estatales. Sin embargo, la principal causante de este problema (que como se ha comentado en el punto anterior viene implícitamente contemplado en la Constitución) es la circunscripción provincial. Muchos politólogos argumentan que realmente en España hay tres elecciones, con tres sistemas \textit{distintos} atendiendo al número de diputados a elegir por circunscripción. Las circunscripciones que reparten de 1 a 6 escaños son sistemas mayoritarios, el partido que más votos recibe puede acaparar gran parte de los escaños (los datos de todas elecciones nos dan una barrera media efectiva del 15,2\%). Las circunscripciones que reparten entre 6 y 9 escaños se asemejan a un sistema intermedio entre mayoritario y proporcional (la barrera efectiva media aquí es del 9,8\%). Finalmente, las provincias que reparten más de 10 escaños podemos decir que son puramente proporcionales y la barrera efectiva media se acerca a la impuesta por la Ley Electoral, es del 3,1\%.
+	
+	\paragraph{Listas cerradas.}
+	
+	Las listas abiertas o desbloqueadas propician el acercamiento los candidatos a los electores, ya que estos deben hacer campaña individualmente para intentar obtener mejores resultados que el resto de candidatos (y obtener el escaño).
+	
+
 	
 	\newpage
 	
@@ -198,7 +241,7 @@
 					Euzko Alderdi Jeltzalea-Partido Nacionalista Vasco & 420 980 & 1.63\% & 7 \\ \hline
 					Coalición Canaria\footnotemark & 235 22 & 0.91\% & 3 \\ \hline
 					Bloque Nacionalista Gallego & 208 688 & 0.81\% & 2 \\ \hline
-					Chunta Aragonesista & 94 252 & 0.36 & 1 \\ \hline
+					Chunta Aragonesista & 94 252 & 0.36\% & 1 \\ \hline
 					Eusko Alkartasuna & 80 905 & 0.30\% & 1 \\ \hline
 					Nafarroa Bai & 61 045 & 0.24\% & 1 \\ 
 				\hline	
@@ -215,7 +258,7 @@
 	
 	\subsection{Elecciones del año 2015.}
 	
-	Las elecciones generales del año 2015 se celebraron el domingo 20 de diciembre. La aparición de dos nuevos partidos, Podemos y Ciudadanos, puso fin al bipartidismo imperante en España desde 1982. De las elecciones del 20D surgió un Congreso mucho más fragmentado, sin ninguna mayoría clara, que obligó a las fuerzas políticas a llegar a acuerdos para formar un Gobierno. El vencedor de las elecciones fue el Partido Popular, con 123 escaños (lejos de la mayoría absoluta, que está en 176 escaños), frente a los 90 del PSOE, los 69 de Podemos y los 40 de Ciudadanos.
+	Las elecciones generales del año 2015 se celebraron el domingo 20 de diciembre. La aparición de dos nuevos partidos, Podemos y Ciudadanos, puso fin al bipartidismo imperante en España desde 1982. De las elecciones del 20D surgió un Congreso mucho más fragmentado, sin ninguna mayoría clara, que obligó a las fuerzas políticas a llegar a acuerdos para formar un Gobierno. La lista más votada fue la del Partido Popular, con 123 escaños (lejos de la mayoría absoluta, que está en 176 escaños), frente a los 90 del PSOE, los 69 de Podemos y los 40 de Ciudadanos.
 	
 	La composición del Congreso quedó como sigue:
 	
@@ -235,13 +278,13 @@
 				\begin{tabular}{|l|r|r|r|}
 				\hline
 					\textbf{Lista electoral} & \textbf{Votos} & \textbf{Votos (\%)} & \textbf{Diputados} \\ \hline
-					Partido Popular\footnotemark & 7 236 965 & 28.71\% & 121 \\ \hline
+					Partido Popular\footnotemark & 7 236 965 & 28.71\% & 123 \\ \hline
 					Partido Socialista Obrero Español\footnotemark & 5 545 315 & 22.00\% & 90 \\ \hline
 					Podemos \footnotemark & 5 212 711 & 20.66\% & 69 \\ \hline
 					Ciudadanos-Partido de la Ciudadanía & 3 514 528 & 13.94\% & 40 \\ \hline
 					Unidad Popular: IU, Unidad Popular en Común & 926 783 & 3.68\% & 2 \\ \hline
 					Esquerra Republicana de Catalunya-Catalunya Sí & 601 782 & 2.39\% & 9 \\ \hline
-					Democràcia i Llibertat & 567 253 & 2.25\% & 6 \\ \hline
+					Democràcia i Llibertat & 567 253 & 2.25\% & 8 \\ \hline
 					Euzko Alderdi Jeltzalea-Partido Nacionalista Vasco & 302 316 & 1.20\% & 6 \\ \hline
 					Euskal Herria Bildu & 219 125 & 0.87\% & 2 \\ \hline
 					Coalición Canaria-Partido Nacionalista Canario & 81 917 & 0.32\% & 1 \\
@@ -259,5 +302,109 @@
 	\section{Simulaciones sobre los resultados electorales.}
 	\subsection{Elecciones del año 2004.}
 	\subsection{Elecciones del año 2015.}
+	
+	\subsubsection{Circunscripción única con corte en el 3\%.}
+	
+	Hacemos una simulación con circunscripción única. Esto quiere decir que se hace un cómputo a nivel estatal para calcular los escaños, en este caso por la Ley D'Hondt. Como en la legislación actual, no se incluyen aquellos partidos que no alcancen el 3\% de los votos, solo que aquí es a nivel de todo el Estado. Por este motivo, los distintos partidos nacionalistas se quedan fuera del parlamento.
+	
+	\console{
+		\begin{center}
+			\begin{tikzpicture}
+				\begin{scope}[yscale=1,xscale=-1]
+	 		  		\pie[pos={6,0}, sum=700, after number=, radius=4, color={pp, psoe, podemos, ciudadanos, up }, text=legend]{113/PP, 87/PSOE, 81/Podemos, 55/Ciudadanos, 14/IU UPeC} 
+				\end{scope}			\end{tikzpicture}
+		\end{center}
+	}
+	
+	Los partidos que habrían obtenido representación parlamentaria serían: 
+	
+	\console {	
+		\noindent\makebox[\textwidth]{%
+				\begin{tabular}{|l|r|r|r|}
+				\hline
+					\textbf{Lista electoral} & \textbf{Dip. simulación} & \textbf{Diputados 20D} & \textbf{Diferencia}\\ \hline
+					Partido Popular & 113 & 123 & -10  \\ \hline
+					Partido Socialista Obrero Español & 87 & 90 & -3 \\ \hline
+					Podemos y Confluencias & 81 & 69 & +12 \\ \hline
+					Ciudadanos-Partido de la Ciudadanía & 55 & 40 & +15 \\ \hline
+					Unidad Popular: IU, Unidad Popular en Común & 14 & 2 & +12 \\
+				\hline	
+				\end{tabular}
+		}
+	}
+	
+	El resto de partidos no obtiene ningún escaño.
+	
+	\subsubsection{Circunscripción única con corte en el 1\%.}
+	
+	Repetimos la simulación anterior, pero esta vez el corte para descartar los partidos que obtienen escaño está en el 1\%. Así, varios partidos nacionalistas obtienen escaño, pero no es así con EH Bildu y Coalición Canaria, que al no llegar al 1\% de los votos, quedan descartados. El hemiciclo queda como sigue:
+	
+	\console{
+		\begin{center}
+			\begin{tikzpicture}
+				\begin{scope}[yscale=1,xscale=-1]
+	 		  		\pie[pos={6,0}, sum=700, after number=, radius=4, color={pp, psoe, podemos, ciudadanos, up, gray }, text=legend]{107/PP, 82/PSOE, 77/Podemos, 51/Ciudadanos, 13/IU UPeC, 20/Otros} 
+				\end{scope}			\end{tikzpicture}
+		\end{center}
+	}
+	
+	Los partidos que habrían obtenido representación parlamentaria serían: 
+	
+	\console {	
+		\noindent\makebox[\textwidth]{%
+				\begin{tabular}{|l|r|r|r|}
+				\hline
+					\textbf{Lista electoral} & \textbf{Dip. simulación} & \textbf{Diputados 20D} & \textbf{Diferencia}\\ \hline
+					Partido Popular & 107 & 123 & -16  \\ \hline
+					Partido Socialista Obrero Español & 82 & 90 & -8 \\ \hline
+					Podemos y Confluencias & 77 & 69 & +8 \\ \hline
+					Ciudadanos-Partido de la Ciudadanía & 51 & 40 & +11 \\ \hline
+					Unidad Popular: IU, Unidad Popular en Común & 13 & 2 & +11 \\ \hline
+					Esquerra Republicana de Catalunya-Catalunya Sí & 8 & 9 & -1 \\ \hline
+					Democràcia i Llibertat & 8 & 6 & +2 \\ \hline
+					Euzko Alderdi Jeltzalea-Partido Nacionalista Vasco & 6 & 6 & 0 \\
+				\hline	
+				\end{tabular}
+		}
+	}
+	
+	\subsubsection{Unidos Podemos.}
+	
+	Para comprobar cómo nuestro sistema premia las coaliciones, en el sentido de que son más eficientes para obtener escaños al aglutinar el voto, vamos a hacer una simulación en la que se suman los votos de Izquierda Unida y Podemos (que el 26J se presentarán en coalición). La circunscripción será provincial y el sistema de reparto, D'Hondt.
+	
+	\console{
+		\begin{center}
+			\begin{tikzpicture}
+				\begin{scope}[yscale=1,xscale=-1]
+	 		  		\pie[pos={6,0}, sum=700, after number=, radius=4, color={pp, psoe, podemos, ciudadanos, gray }, text=legend]{116/PP, 88/PSOE, 85/Unidos Podemos, 36/Ciudadanos, 25/Otros} 
+				\end{scope}			\end{tikzpicture}
+		\end{center}
+	}
+	
+	Los partidos que habrían obtenido representación parlamentaria serían:
+	
+	\console {	
+		\noindent\makebox[\textwidth]{%
+				\begin{tabular}{|l|r|r|r|}
+				\hline
+					\textbf{Lista electoral} & \textbf{Dip. simulación} & \textbf{Diputados 20D} & \textbf{Diferencia}\\ \hline
+					Partido Popular\footnotemark & 116 & 123 & -7 \\ \hline
+					Partido Socialista Obrero Español\footnotemark & 88 & 90 & -2 \\ \hline
+					Unidos Podemos \footnotemark & 85 & 71 & +14 \\ \hline
+					Ciudadanos-Partido de la Ciudadanía & 36 & 40 & -4 \\ \hline
+					Esquerra Republicana de Catalunya-Catalunya Sí & 9 & 9 & 0\\ \hline
+					Democràcia i Llibertat & 8 & 8 & 0 \\ \hline
+					Euzko Alderdi Jeltzalea-Partido Nacionalista Vasco & 5 & 6 & -1\\ \hline
+					Euskal Herria Bildu & 2 & 2 & 0 \\ \hline
+					Coalición Canaria-Partido Nacionalista Canario & 1 & 1 & 0 \\
+				\hline	
+				\end{tabular}
+		}
+	}
+	
+	Se puede observar claramente lo rentable que hubiese sido la coalición. Unidad Popular y Podemos obtuvieron en total 71 escaños el 20D. En esta simulación podemos observar que con los mismos votos habrían obtenido 14 diputados más. La mayoría de los escaños se los araña al PP, que pierde 7. También al PSOE (-2), Ciudadanos (-4) y PNV (-1).
+	
+	También podemos ver una de las principales paradojas de nuestro sistema electoral. Debido a la circunscripción provincial, Unidos Podemos habría obtenido más votos que el PSOE (24.34\% frente a 22.00\%) y sin embargo, conseguiría 3 escaños menos.
+
 	
 \end{document}
