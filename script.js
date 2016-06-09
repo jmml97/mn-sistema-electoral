@@ -122,6 +122,7 @@ function leerdatos(data) {
    colores = elecciones["colores"];
    resultados = elecciones["resultados"];
 
+   clear_graficos();
    procesa(1);
    procesa(2);
 
@@ -147,7 +148,7 @@ function getcolores(datos) {
 }
 
 // Limpia el gráfico
-function clear_grafico() {
+function clear_graficos() {
    d3.select("svg").remove();
 }
 
@@ -161,7 +162,6 @@ function aclarar(color) {
 
 // Presenta el gráfico de los datos
 function imprime(d, grafico) {
-   clear_grafico();
    var w = 620,     // anchura del marco del gráfico
        h = 320,     // altura
        r = 300,     // radio exterior
