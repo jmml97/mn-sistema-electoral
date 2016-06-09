@@ -122,8 +122,8 @@ function leerdatos(data) {
    colores = elecciones["colores"];
    resultados = elecciones["resultados"];
 
-   procesa(1);
    procesa(2);
+   procesa(1);
 
 }
 
