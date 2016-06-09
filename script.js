@@ -1,10 +1,23 @@
 var CCAA, circunscripciones, blancos, nulos, poblacion, resultados;
 
+/*
 function procesa() {
    var minimo = parseInt(document.getElementById('minimo').value, 10);
    var total_diputados = parseInt(document.getElementById('total_diputados').value, 10);
    var metodo = eval(document.getElementById('sel_metodo').value);
    var tipo_circ = document.getElementById('sel_circ').value;
+   var corte = parseFloat(document.getElementById('corte').value.replace(",", "."), 10);
+   var trasvases = (document.getElementById('iu_pod').checked ? [["Unidos Podemos", ["Podemos", "EN COMÚ", "Compromís-Podemos", "En Marea", "IU-UPeC"]]] : (document.getElementById('pod_conf').checked ? [["Podemos", ["EN COMÚ", "Compromís-Podemos", "En Marea"]]] : []));
+   var escanyos = getEscanyos(minimo,[[["Ceuta", "Melilla"], 1]], total_diputados, tipo_circ == "comunidad");
+
+   actualiza(getResultados(escanyos, metodo, tipo_circ, corte, trasvases));
+}*/
+
+function procesa() {
+   var minimo = 2;
+   var total_diputados = 350;
+   var metodo = dhondt;
+   var tipo_circ = provincia;
    var corte = parseFloat(document.getElementById('corte').value.replace(",", "."), 10);
    var trasvases = (document.getElementById('iu_pod').checked ? [["Unidos Podemos", ["Podemos", "EN COMÚ", "Compromís-Podemos", "En Marea", "IU-UPeC"]]] : (document.getElementById('pod_conf').checked ? [["Podemos", ["EN COMÚ", "Compromís-Podemos", "En Marea"]]] : []));
    var escanyos = getEscanyos(minimo,[[["Ceuta", "Melilla"], 1]], total_diputados, tipo_circ == "comunidad");
