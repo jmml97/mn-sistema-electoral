@@ -123,6 +123,7 @@ function leerdatos(data) {
    resultados = elecciones["resultados"];
 
    procesa(1);
+   procesa(2);
 
 }
 
