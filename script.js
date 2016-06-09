@@ -115,7 +115,6 @@ $(document).ready(function() {
 
 // Presenta los datos procesados en gráfico y lista
 function actualiza(data) {
-   document.getElementById("res_texto").value = data.map(function(a) {return a.join(": ")}).join("\n");
    imprime(data);
 }
 
