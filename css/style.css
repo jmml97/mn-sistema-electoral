@@ -1,0 +1,110 @@
+body {
+   width: 800px;
+   margin: auto;
+}
+
+#header {
+  vertical-align: middle;
+}
+
+#titulo {
+  margin-top: 24px;
+   text-align: left;
+   font-size: 4em;
+   font-family: 'Montserrat', sans-serif;
+   font-weight: bold !important;
+   margin-bottom: 0;
+}
+
+#subtitulo {
+  font-size: 1em;
+  font-family: 'Montserrat', sans-serif;
+  margin-top: 0;
+}
+#tooltip {
+   opacity: 0;
+   border-style: solid;
+   border-width: 2px;
+   position: absolute;
+   padding: 7px;
+   background-color: white;
+   -webkit-border-radius: 8px;
+   -moz-border-radius: 8px;
+   border-radius: 8px;
+   pointer-events: none;
+}
+#contenido, text {
+   font-family: 'Inconsolata';
+   pointer-events: none;
+}
+text {
+   text-anchor: middle;
+}
+#grafico {
+  text-align: center;
+}
+#derecha_grafico {
+}
+#controles, #res_texto, p {
+   font-family: 'Inconsolata';
+   font-size: .8em;
+}
+#controles {
+  font-size: .93em;
+  width: 100%;
+  text-align: left;
+}
+select {
+   width: 100%;
+}
+
+input {
+  width: 80%;
+  text-align: right;
+  height: 38px;
+  padding: 6px 10px; /* The 6px vertically centers text on FF, ignored by Webkit */
+  background-color: #fff;
+  border: 1px solid #D1D1D1;
+  border-radius: 4px;
+  box-shadow: none;
+  box-sizing: border-box;
+}
+textarea {
+   resize: none;
+   height: 320px;
+   border: none;
+}
+#res_texto {
+   font-size: .78em;
+   line-height: 1.2em;
+   padding: 4px;
+}
+p {
+
+}
+a {
+   color: #000030;
+}
+
+h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2em;
+}
+
+#titulos p {
+  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+}
+
+#text-body {
+  font-family: 'Source Serif Pro', serif;
+  font-size: 1.2em;
+  margin-top: 2em;
+}
+
+#checkbox_label {
+  display: inline-block;
+  height: 38px;
+  position: relative;
+  bottom: 1.5rem;
+}
