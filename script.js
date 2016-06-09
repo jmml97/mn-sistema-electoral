@@ -181,6 +181,8 @@ function imprime(d, grafico) {
 
    var min = Math.floor(total*0.055);    // mínimo de escaños para mostrar texto
 
+   console.log("#grafico" + grafico);
+
    var vis = d3.select("#grafico" + grafico)
       .append("svg")
       .attr("width", w)
