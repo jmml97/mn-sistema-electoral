@@ -13,14 +13,21 @@ function procesa() {
    actualiza(getResultados(escanyos, metodo, tipo_circ, corte, trasvases));
 }*/
 
-function procesa() {
-   var minimo = 2;
-   var total_diputados = 350;
-   var metodo = dhondt;
-   var tipo_circ = "provincia";
-   var corte = 3;
-   var trasvases = [["Podemos", ["EN COMÚ", "Compromís-Podemos", "En Marea"]]];
-   var escanyos = getEscanyos(minimo,[[["Ceuta", "Melilla"], 1]], total_diputados, tipo_circ == "comunidad");
+function procesa(sim) {
+
+  switch (sim) {
+    case 1:
+      var minimo = 2;
+      var total_diputados = 350;
+      var metodo = dhondt;
+      var tipo_circ = "provincia";
+      var corte = 3;
+      var trasvases = [["Podemos", ["EN COMÚ", "Compromís-Podemos", "En Marea"]]];
+      var escanyos = getEscanyos(minimo,[[["Ceuta", "Melilla"], 1]], total_diputados, tipo_circ == "comunidad");
+      break;
+    default:
+
+  }
 
    actualiza(getResultados(escanyos, metodo, tipo_circ, corte, trasvases));
 }
@@ -106,7 +113,8 @@ function leerdatos(data) {
    colores = elecciones["colores"];
    resultados = elecciones["resultados"];
 
-   procesa();
+   procesa(1);
+
 }
 
 $(document).ready(function() {
