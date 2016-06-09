@@ -29,7 +29,7 @@ function procesa(sim) {
 
   }
 
-   actualiza(getResultados(escanyos, metodo, tipo_circ, corte, trasvases));
+   actualiza(getResultados(escanyos, metodo, tipo_circ, corte, trasvases), sim);
 }
 
 function getEscanyos(minimo, fijos, total, por_ccaa) {
@@ -122,8 +122,8 @@ $(document).ready(function() {
 });
 
 // Presenta los datos procesados en gráfico y lista
-function actualiza(data) {
-   imprime(data);
+function actualiza(data, grafico) {
+   imprime(data, grafico);
 }
 
 // Obtiene los colores fijos de los partidos (el resto queda sin definir)
@@ -150,7 +150,7 @@ function aclarar(color) {
 }
 
 // Presenta el gráfico de los datos
-function imprime(d) {
+function imprime(d, grafico) {
    clear_grafico();
    var w = 620,     // anchura del marco del gráfico
        h = 320,     // altura
@@ -171,7 +171,7 @@ function imprime(d) {
 
    var min = Math.floor(total*0.055);    // mínimo de escaños para mostrar texto
 
-   var vis = d3.select("#grafico")
+   var vis = d3.select("#grafico" + grafico)
       .append("svg")
       .attr("width", w)
       .attr("height", h)
