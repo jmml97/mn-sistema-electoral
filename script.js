@@ -28,10 +28,37 @@ function procesa(sim) {
     case 2:
       var minimo = 2;
       var total_diputados = 350;
+      var metodo = saintelague;
+      var tipo_circ = "provincia";
+      var corte = 3;
+      var trasvases = [["Podemos", ["EN COMÚ", "Compromís-Podemos", "En Marea"]]];
+      var escanyos = getEscanyos(minimo,[[["Ceuta", "Melilla"], 1]], total_diputados, tipo_circ == "comunidad");
+      break;
+    case 3:
+      var minimo = 2;
+      var total_diputados = 350;
       var metodo = dhondt;
       var tipo_circ = "unica";
       var corte = 3;
       var trasvases = [["Podemos", ["EN COMÚ", "Compromís-Podemos", "En Marea"]]];
+      var escanyos = getEscanyos(minimo,[[["Ceuta", "Melilla"], 1]], total_diputados, tipo_circ == "comunidad");
+      break;
+    case 4:
+      var minimo = 2;
+      var total_diputados = 350;
+      var metodo = dhondt;
+      var tipo_circ = "unica";
+      var corte = 1;
+      var trasvases = [["Podemos", ["EN COMÚ", "Compromís-Podemos", "En Marea"]]];
+      var escanyos = getEscanyos(minimo,[[["Ceuta", "Melilla"], 1]], total_diputados, tipo_circ == "comunidad");
+      break;
+    case 5:
+      var minimo = 2;
+      var total_diputados = 350;
+      var metodo = dhondt;
+      var tipo_circ = "provincia";
+      var corte = 1;
+      var trasvases = [["Unidos Podemos", ["Podemos", "EN COMÚ", "Compromís-Podemos", "En Marea", "IU-UPeC"]]];
       var escanyos = getEscanyos(minimo,[[["Ceuta", "Melilla"], 1]], total_diputados, tipo_circ == "comunidad");
       break;
     default:
@@ -125,6 +152,9 @@ function leerdatos(data) {
    clear_graficos();
    procesa(1);
    procesa(2);
+   procesa(3);
+   procesa(4);
+   procesa(5);
 
 }
 

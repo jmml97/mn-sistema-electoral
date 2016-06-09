@@ -10,15 +10,15 @@ body {
 #titulo {
   margin-top: 24px;
    text-align: left;
-   font-size: 4em;
+   font-size: 6em;
    font-family: 'Montserrat', sans-serif;
    font-weight: bold !important;
    margin-bottom: 0;
 }
 
 #subtitulo {
-  font-size: 1em;
-  font-family: 'Montserrat', sans-serif;
+  font-size: 1.25em;
+  font-family: 'Inconsolata', sans-serif;
   margin-top: 0;
 }
 #tooltip {
@@ -45,7 +45,7 @@ text {
 }
 #derecha_grafico {
 }
-#controles, #res_texto, p {
+#controles #res_texto p {
    font-family: 'Inconsolata';
    font-size: .8em;
 }
@@ -80,10 +80,15 @@ textarea {
    padding: 4px;
 }
 p {
-
+  text-align: justify;
 }
 a {
    color: #000030;
+}
+
+h2 {
+  font-family: 'Montserrat';
+  font-size: 2.5em;
 }
 
 h3 {
@@ -96,8 +101,8 @@ h3 {
   font-family: 'Montserrat', sans-serif;
 }
 
-#text-body {
-  font-family: 'Source Serif Pro', serif;
+p {
+  font-family: 'Lora', serif;
   font-size: 1.2em;
   margin-top: 2em;
 }
