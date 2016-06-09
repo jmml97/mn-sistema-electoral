@@ -25,7 +25,7 @@ function procesa(sim) {
       var trasvases = [["Podemos", ["EN COMÚ", "Compromís-Podemos", "En Marea"]]];
       var escanyos = getEscanyos(minimo,[[["Ceuta", "Melilla"], 1]], total_diputados, tipo_circ == "comunidad");
       break;
-    case 1:
+    case 2:
       var minimo = 2;
       var total_diputados = 350;
       var metodo = dhondt;
